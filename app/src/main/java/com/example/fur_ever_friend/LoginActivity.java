@@ -7,20 +7,28 @@ import android.view.View;
 import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
-
-
+    Button register,forget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button newactivity=findViewById(R.id.btn_jenish);
-        newactivity.setOnClickListener(new View.OnClickListener() {
+        Button register=findViewById(R.id.register_btn);
+        Button forget=findViewById(R.id.forget_pass);
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(LoginActivity.this,Register.class);
                 startActivity(intent);
-                finish();
+
             }
         });
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LoginActivity.this,Forgot_Password_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

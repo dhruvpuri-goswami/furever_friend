@@ -134,9 +134,10 @@
             android:fontFamily="@font/montserrat_medium"
             android:layout_marginLeft="7dp"
             android:layout_gravity="center_vertical"
+
             android:gravity="center_vertical"
             android:hint="Mobile"
-            android:inputType="text"
+            android:inputType="phone|number"
             android:paddingBottom="8dp"
             android:textColor="@android:color/black"
             android:textColorHint="@color/gray"
@@ -229,7 +230,7 @@
             android:text="Joined us before?" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/login"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

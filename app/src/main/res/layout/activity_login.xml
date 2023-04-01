@@ -117,31 +117,30 @@
         app:layout_constraintTop_toBottomOf="@+id/name_container">
 
         <Button
+            android:id="@+id/forget_pass"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="Forget Password?"
-
             android:textColor="@color/blue" />
 
     </LinearLayout>
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/continue_btn"
-        android:layout_margin="20dp"
+        android:id="@+id/login_btn"
+        style="@android:style/Widget.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_gradient"
-        android:text="Login"
         android:fontFamily="@font/montserrat_bold"
-        style="@android:style/Widget.Button"
+        android:text="Login"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forget_pass_container"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/forget_pass_container" />
 
     <LinearLayout
         android:id="@+id/or_container"
@@ -149,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/continue_btn">
+        app:layout_constraintTop_toBottomOf="@id/login_btn">
 
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
@@ -216,8 +215,11 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="New to Logistics?" />
 
+        <View
+            android:layout_width="13dp"
+            android:layout_height="match_parent"/>
         <Button
-            android:id="@+id/btn_jenish"
+            android:id="@+id/register_btn"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -226,8 +228,7 @@
             android:gravity="left|center_vertical"
             android:text="Register"
             android:textColor="@color/blue"
-
-            android:textSize="12dp" />
+            android:textSize="16dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

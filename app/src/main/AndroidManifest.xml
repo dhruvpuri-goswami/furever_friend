@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Fur_ever_friend"
         tools:targetApi="33">
         <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Otp_Validation_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Forgot_Password_Activity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -25,13 +34,8 @@
             android:exported="false" />
         <activity
             android:name=".Register"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"
+            android:parentActivityName=".LoginActivity" />
     </application>
 
 </manifest>
