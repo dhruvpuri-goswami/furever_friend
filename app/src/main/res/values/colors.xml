@@ -10,8 +10,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="checkbox_foreground">#FFFFFF</color>
     <color name="checkbox_background">#2196F3</color>
-    <color name="button_start">#121717</color>
-    <color name="button_end">#bc9c22 </color>
+    <color name="dark_theme">#121717</color>
+    <color name="yellow_theme">#bc9c22 </color>
     <color name="background_start_login"></color>
     <color name="background_end_login"></color>
     <color name="gray">#808080</color>
