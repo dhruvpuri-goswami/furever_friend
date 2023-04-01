@@ -1,4 +1,4 @@
-package com.example.fur_everfriend;
+package com.example.fur_ever_friend;
 
 import org.junit.Test;
 

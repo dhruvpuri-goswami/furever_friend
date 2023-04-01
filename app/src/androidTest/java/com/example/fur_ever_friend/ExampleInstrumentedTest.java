@@ -1,9 +1,8 @@
-package com.example.fur_everfriend;
+package com.example.fur_ever_friend;
 
 import android.content.Context;
-
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +20,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.fur_everfriend", appContext.getPackageName());
+        assertEquals("com.example.fur_ever_friend", appContext.getPackageName());
     }
 }
