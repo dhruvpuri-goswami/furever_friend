@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/imageView3"
@@ -22,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Sign Up"
+        android:text="Login"
         android:layout_marginLeft="10dp"
         android:textStyle="bold"
         android:textSize="30dp"
@@ -61,7 +60,7 @@
             android:gravity="center_vertical"
             android:fontFamily="@font/montserrat_medium"
             android:inputType="textEmailAddress"
-            android:hint="Enter your email"
+            android:hint="Email ID"
             android:layout_gravity="center_vertical"
             android:paddingBottom="8dp"
             android:textColor="@android:color/black"
@@ -87,7 +86,7 @@
             android:layout_height="30dp"
             android:layout_marginTop="3dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/person_outline" />
+            android:src="@drawable/lock_item" />
 
         <EditText
             android:id="@+id/full_name"
@@ -97,7 +96,7 @@
             android:inputType="text"
             android:fontFamily="@font/montserrat_medium"
             android:layout_marginLeft="7dp"
-            android:hint="Full name"
+            android:hint="Password"
             android:layout_gravity="center_vertical"
             android:paddingBottom="8dp"
             android:textColor="@android:color/black"
@@ -107,90 +106,24 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_container">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="3dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/call_" />
-
-
-        <EditText
-            android:id="@+id/phone_num"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:fontFamily="@font/montserrat_medium"
-            android:layout_marginLeft="7dp"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:hint="Mobile"
-            android:inputType="text"
-            android:paddingBottom="8dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/gray"
-            android:textSize="16sp" />
-    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/privacy_container"
-        android:orientation="vertical"
+        android:id="@+id/forget_pass_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:gravity="end"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-        <LinearLayout
-            android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_container">
+
+        <Button
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/priv_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:text="@string/priv_text"
-                android:textSize="14dp" />
+            android:background="@android:color/transparent"
+            android:text="Forget Password?"
 
-            <TextView
-                android:id="@+id/privacy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/priv_txt"
-                android:text="@string/privacy"
-                android:textColor="@color/blue"
-                android:textSize="14dp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/and"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="@string/and"
-                android:textSize="14dp" />
-
-            <TextView
-                android:id="@+id/policy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/policy"
-                android:textColor="@color/blue" />
-        </LinearLayout>
+            android:textColor="@color/blue" />
 
     </LinearLayout>
 
@@ -201,46 +134,100 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_gradient"
-        android:text="Continue"
+        android:text="Login"
         android:fontFamily="@font/montserrat_bold"
+        style="@android:style/Widget.Button"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privacy_container"
+        app:layout_constraintTop_toBottomOf="@+id/forget_pass_container"
         />
 
     <LinearLayout
+        android:id="@+id/or_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/continue_btn">
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center|center_horizontal"
+            android:text="OR"
+            android:fontFamily="@font/montserrat_medium" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.4" />
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/google_btn"
+
+        style="@android:style/Widget.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_gradient_google"
+
+        android:drawableLeft="@drawable/google_logo"
+        android:fontFamily="@font/montserrat_bold"
+        android:paddingLeft="30dp"
+        android:paddingEnd="60dp"
+        android:paddingRight="26dp"
+        android:singleLine="true"
+        android:text="Login with Google"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/or_container" />
+
+    <LinearLayout
+        android:id="@+id/register_container"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginTop="8dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/continue_btn">
+        app:layout_constraintTop_toBottomOf="@+id/google_btn">
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/montserrat_medium"
             android:gravity="end"
-            android:text="Joined us before?" />
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="New to Logistics?" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btn_jenish"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:fontFamily="@font/montserrat_medium"
-            android:gravity="start|center"
-            android:text="Login"
+            android:gravity="left|center_vertical"
+            android:text="Register"
             android:textColor="@color/blue"
+
             android:textSize="12dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
-

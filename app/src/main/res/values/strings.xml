@@ -2,8 +2,8 @@
     <string name="app_name">Fur-ever Friend</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="priv_text">\t By signing up,you\'re agree to our, \t</string>
-    <string name="privacy"> Terms &amp; conditions \t </string>
+    <string name="priv_text">By signing up,you\'re agree to our, </string>
+    <string name="privacy"> Terms &amp; conditions </string>
     <string name="and"> and </string>
-    <string name="policy">\n \n \t Privacy policy</string>
+    <string name="policy">Privacy policy</string>
 </resources>
