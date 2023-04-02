@@ -11,7 +11,7 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/dog"
+        android:src="@drawable/dog_cute"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -149,9 +149,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="27dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,32 +163,39 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:text="@string/priv_text"
-                android:textSize="14dp" />
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/privacy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:layout_toRightOf="@+id/priv_txt"
                 android:text="@string/privacy"
                 android:textColor="@color/blue"
-                android:textSize="14dp" />
+                android:textSize="12dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
             <TextView
                 android:id="@+id/and"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/montserrat_medium"
                 android:text="@string/and"
-                android:textSize="14dp" />
+                android:textSize="12dp" />
 
             <TextView
                 android:id="@+id/policy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:textSize="12dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="@string/policy"
                 android:textColor="@color/blue" />
         </LinearLayout>
@@ -213,7 +220,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -234,6 +241,7 @@
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/montserrat_medium"
