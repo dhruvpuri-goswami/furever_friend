@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_vertical"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:fontFamily="@font/montserrat_medium"
             android:layout_marginLeft="7dp"
             android:hint="Password"
@@ -104,6 +104,16 @@
             android:textSize="16sp" />
 
 
+        <ImageView
+            android:id="@+id/showhide"
+            android:onClick="ShowHide"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_remove_red_eye_24"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="-30dp"
+            />
     </LinearLayout>
 
 
