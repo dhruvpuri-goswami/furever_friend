@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             showHide.setImageResource(R.drawable.lock_item);
         }else{
             password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            showHide.setImageResource(R.drawable.baseline_remove_red_eye_24);
+            showHide.setImageResource(R.drawable.eye_for_toggle);
         }
     }
 }

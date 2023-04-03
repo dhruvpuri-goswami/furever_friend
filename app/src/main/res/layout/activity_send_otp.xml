@@ -40,6 +40,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginTop="50dp"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="Enter Mobile Number"
             android:textSize="14sp"/>
         <LinearLayout
@@ -53,7 +54,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:gravity="center"
-                android:text="+91-"/>
+                android:text="+91-"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/inputMobile"
+                android:hint="1234567891"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="70dp"
+            android:background="@color/gray"/>
+        
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonOfOTP"
+                android:background="@drawable/button_gradient"
+                android:text="Get OTP"
+                android:layout_margin="30dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout>
+
     </LinearLayout>
 </ScrollView>
