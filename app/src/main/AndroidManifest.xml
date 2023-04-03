@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Fur_ever_friend"
         tools:targetApi="33">
         <activity
+            android:name=".SendOTP"
+            android:exported="false" />
+        <activity
             android:name=".ResetPasswordActivity"
             android:exported="false" />
         <activity

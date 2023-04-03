@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:layout_marginLeft="7dp"
             android:gravity="center_vertical"
             android:fontFamily="@font/montserrat_medium"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:hint="Email ID"
             android:layout_gravity="center_vertical"
             android:paddingBottom="8dp"
@@ -89,7 +89,7 @@
             android:src="@drawable/lock_item" />
 
         <EditText
-            android:id="@+id/full_name"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:gravity="center_vertical"
@@ -137,7 +137,7 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn"
         style="@android:style/Widget.Button"
         android:layout_width="match_parent"
@@ -160,7 +160,7 @@
         android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/login_btn">
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
@@ -174,32 +174,32 @@
             android:text="OR"
             android:fontFamily="@font/montserrat_medium" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.4" />
     </LinearLayout>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/google_btn"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/phone_btn"
 
         style="@android:style/Widget.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="378dp"
+        android:layout_height="51dp"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/button_gradient_google"
 
-        android:drawableLeft="@drawable/google_logo"
+        android:drawableLeft="@drawable/call_"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="30dp"
         android:paddingEnd="60dp"
         android:paddingRight="26dp"
         android:singleLine="true"
-        android:text="Login with Google"
+        android:text="Login with Mobile"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +213,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_btn">
+        app:layout_constraintTop_toBottomOf="@+id/phone_btn">
 
         <TextView
             android:id="@+id/textView9"
@@ -241,4 +241,4 @@
             android:textSize="16dp" />
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
