@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "43486678337",
+    "firebase_url": "https://furever-friend-182d6-default-rtdb.firebaseio.com",
     "project_id": "furever-friend-182d6",
     "storage_bucket": "furever-friend-182d6.appspot.com"
   },
@@ -10,6 +11,43 @@
         "mobilesdk_app_id": "1:43486678337:android:74226b97601b5cb6dc25c0",
         "android_client_info": {
           "package_name": "com.example.fur_ever_friend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43486678337-vlvb8u51hlec7rm75hl6i1l0spntfqvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fur_ever_friend",
+            "certificate_hash": "30250ff6f78f239e2395440cd0cf226fd0b9ea69"
+          }
+        },
+        {
+          "client_id": "43486678337-lkc61l1oja666k8v5ip6hvc1ucji6q71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJXCZIhMFb0Q1hCvBZYbVrlT39OxHarM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43486678337-lkc61l1oja666k8v5ip6hvc1ucji6q71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43486678337:android:8cf76e652b9fcef0dc25c0",
+        "android_client_info": {
+          "package_name": "com.example.furever_friend"
         }
       },
       "oauth_client": [

@@ -8,5 +8,5 @@
     <string name="policy">Privacy policy</string>
     <string name="forget_pass_firstline">Don\'t worry! It happens.Please enter the</string>
     <string name="forget_pass_secondline">address associated with your account.</string>
-    <string name="otp_first_line">An 4 digit code has been sent to</string>
+    <string name="otp_first_line">An 6 digit code has been sent to</string>
 </resources>

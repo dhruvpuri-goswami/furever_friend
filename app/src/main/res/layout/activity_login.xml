@@ -10,9 +10,10 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/dog_cute"
-        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Login"
+        android:text="Welcome User"
         android:layout_marginLeft="10dp"
         android:textStyle="bold"
         android:textSize="30dp"
@@ -45,8 +46,8 @@
         app:layout_constraintTop_toBottomOf="@+id/sign_up_textview">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginTop="5dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/symbol_email" />
@@ -82,8 +83,8 @@
         app:layout_constraintTop_toBottomOf="@+id/email_container">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginTop="3dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/lock_item" />
@@ -107,8 +108,8 @@
         <ImageView
             android:id="@+id/showhide"
             android:onClick="ShowHide"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/eye_for_toggle"
             android:layout_marginTop="3dp"
             android:layout_gravity="center_vertical"
@@ -191,7 +192,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/button_gradient_google"
-
         android:drawableLeft="@drawable/call_"
         android:fontFamily="@font/montserrat_bold"
         android:paddingLeft="30dp"
@@ -224,20 +224,18 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="New to Logistics?" />
 
-        <View
-            android:layout_width="13dp"
-            android:layout_height="match_parent"/>
         <Button
             android:id="@+id/register_btn"
+            android:paddingLeft="4dp"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:gravity="left|center_vertical"
             android:text="Register"
-            android:textColor="@color/blue"
-            android:textSize="16dp" />
+            android:textColor="@color/blue" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

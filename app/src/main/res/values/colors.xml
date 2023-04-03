@@ -14,6 +14,7 @@
     <color name="yellow_theme">#bc9c22 </color>
     <color name="background_start_login"></color>
     <color name="background_end_login"></color>
+    <color name="gray_dog">#b0bec5</color>
     <color name="gray">#808080</color>
 
 </resources>
