@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -43,33 +44,37 @@
             android:textStyle="bold"
             android:text="Enter Mobile Number"
             android:textSize="14sp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginStart="60dp"
             android:layout_marginEnd="60dp"
-            android:gravity="center">
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:gravity="center"
+                android:gravity="start"
+
                 android:text="+91-"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
                 android:id="@+id/inputMobile"
-                android:hint="1234567891"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
                 android:inputType="phone"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"

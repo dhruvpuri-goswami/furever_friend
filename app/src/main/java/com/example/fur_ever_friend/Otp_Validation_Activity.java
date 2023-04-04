@@ -28,7 +28,6 @@ public class Otp_Validation_Activity extends AppCompatActivity {
     Intent intent;
     String verficationId;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

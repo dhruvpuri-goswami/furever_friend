@@ -49,12 +49,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <EditText
             android:id="@+id/otp_block_1"
@@ -64,6 +63,8 @@
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
+            android:inputType="number"
+            android:maxLength="1"
             android:textColor="@android:color/black"
             android:textSize="28sp" />
 
@@ -76,6 +77,7 @@
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
+            android:inputType="number"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="28sp" />
@@ -89,6 +91,7 @@
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
+            android:inputType="number"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="28sp" />
@@ -102,9 +105,11 @@
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
+            android:inputType="number"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="28sp" />
+
         <EditText
             android:id="@+id/otp_block5"
             android:layout_width="45dp"
@@ -114,9 +119,11 @@
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
+            android:inputType="number"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="28sp" />
+
         <EditText
             android:id="@+id/otp_block6"
             android:layout_width="45dp"
@@ -126,6 +133,7 @@
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
+            android:inputType="number"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="28sp" />
@@ -177,10 +185,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/otp_first_line"
         android:textSize="19dp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="139dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_textview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
