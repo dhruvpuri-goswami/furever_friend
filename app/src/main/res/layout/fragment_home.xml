@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+
+    <LinearLayout
+        android:id="@+id/top_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp"
+        android:gravity="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:src="@drawable/dog_cute" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5sp"
+            android:layout_gravity="center_vertical"
+
+            android:backgroundTint="@color/white"
+            android:src="@drawable/notifications" />
+
+        <ImageView
+            android:id="@+id/profile_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:background="@drawable/profile_round"
+            android:src="@drawable/dog_cute" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/book_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="15sp"
+        android:background="@drawable/book_now_cardview_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_container" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/book_now_cardview_bg"
+            >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20sp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dog walking in "
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="26sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="your neighbour"
+                android:textSize="25sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                />
+
+            <Button
+                style="@android:style/Widget.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/book_now_bg"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="Book now"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/dog_cute"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dog_health"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="15sp"
+        android:background="@drawable/book_now_cardview_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/book_cardview" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/dogs_daily_walk"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/dog_cute" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Michael"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:padding="20sp"
+                >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="start"
+                android:gravity="center_horizontal"
+                android:padding="5sp">
+                <TextView
+                    android:id="@+id/dog_walking_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dog_walking_bg"
+                    android:padding="5sp"
+                    android:text="60% "
+                    android:drawableLeft="@drawable/footprint_size"
+
+                    android:gravity="center"
+                    android:textColor="#B5A626"
+                    />
+                <TextView
+
+                    android:id="@+id/dog_walking_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.5h"
+                    android:textSize="12sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#1A2BBB"
+                    android:gravity="center"
+                    android:padding="5sp"
+                    android:drawableLeft="@drawable/dog_walking_time"
+                    android:background="@drawable/dog_walk_time"
+                    />
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="end"
+                    android:gravity="center_horizontal"
+                    android:padding="5sp">
+                    <TextView
+                        android:id="@+id/dog_walking_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dog_walking_bg"
+                        android:padding="5sp"
+                        android:text="60% "
+                        android:drawableLeft="@drawable/footprint_size"
+
+                        android:gravity="center"
+                        android:textColor="#B5A626"
+                        />
+                    <TextView
+                        android:id="@+id/calories_burnt_by_dog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.5h"
+                        android:textSize="12sp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#1A2BBB"
+                        android:gravity="center"
+                        android:padding="5sp"
+                        android:drawableLeft="@drawable/dog_walking_time"
+                        android:background="@drawable/dog_walk_time"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/recent_walker_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/dog_health">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_centerVertical="true"
+            android:text="Recent walker"
+            android:textAlignment="center"
+            android:textSize="22sp" />
+
+        <Button
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="See all >"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recent_walker_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/dog_walker_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/dog"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Dog_walker_name"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Dog_walker_date_time"
+                            android:gravity="bottom"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   >
+                   <Button
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       style="@android:style/Widget.Button"
+                       android:text="Book"
+                       android:background="@drawable/book_dog_walker_rounded"
+                       android:layout_alignParentEnd="true"/>
+               </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/dog"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Dog_walker_name"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Dog_walker_date_time"
+                            android:gravity="bottom"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    >
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@android:style/Widget.Button"
+                        android:text="Book"
+                        android:background="@drawable/book_dog_walker_rounded"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/dog"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="Dog_walker_name"
+                            android:layout_gravity="center_vertical"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="Dog_walker_date_time"
+                            android:gravity="bottom"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    >
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@android:style/Widget.Button"
+                        android:text="Book"
+                        android:background="@drawable/book_dog_walker_rounded"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
