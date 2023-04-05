@@ -15,16 +15,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fur_ever_friend"
         tools:targetApi="33">
-        <receiver android:name=".OTP_Receiver" android:exported="true"
+        <activity
+            android:name=".Maps_Activity"
+            android:exported="true" >
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <receiver
+            android:name=".OTP_Receiver"
+            android:exported="true"
             android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
             <intent-filter>
-                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
             </intent-filter>
         </receiver>
 
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".SendOTP"
             android:exported="false" />
@@ -39,13 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
         <activity
             android:name=".Register"
             android:exported="true"
