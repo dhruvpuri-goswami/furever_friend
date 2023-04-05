@@ -36,7 +36,10 @@ public class SendOTP extends AppCompatActivity {
                 }else {
                     progressBar.setVisibility(View.VISIBLE);
                     submit.setVisibility(View.INVISIBLE);
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber("+91"+inputMobile.getText().toString(),60, TimeUnit.SECONDS,SendOTP.this,new PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber("+91"+inputMobile.getText().toString(),
+                            60, TimeUnit.SECONDS,
+                            SendOTP.this,
+                            new PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
                         @Override
                         public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                             progressBar.setVisibility(View.GONE);

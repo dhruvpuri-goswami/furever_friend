@@ -266,7 +266,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15sp"
+
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -276,6 +276,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_margin="15sp"
             >
 
             <androidx.cardview.widget.CardView
@@ -428,8 +429,6 @@
                         android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-
 
         </LinearLayout>
 
