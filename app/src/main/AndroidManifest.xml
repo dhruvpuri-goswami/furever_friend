@@ -16,15 +16,20 @@
         android:theme="@style/Theme.Fur_ever_friend"
         tools:targetApi="33">
         <activity
-            android:name=".Maps_Activity"
+            android:name=".Dog_Breed_Activity"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".Maps_Activity"
+            android:exported="false">
+
+        </activity>
+
         <receiver
             android:name=".OTP_Receiver"
             android:exported="true"
@@ -36,9 +41,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"/>
         <activity
             android:name=".SendOTP"
             android:exported="false" />
@@ -53,7 +56,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="true"
