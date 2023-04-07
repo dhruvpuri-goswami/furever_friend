@@ -8,21 +8,19 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
-
+        android:padding="16dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dog_name_container">
         <ImageView
             android:id="@+id/dog_img"
             android:layout_width="100dp"
             android:layout_height="100dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
@@ -30,81 +28,168 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:textStyle="bold"
             android:textColor="@color/black"
+            android:layout_marginStart="30sp"
+            android:layout_toRightOf="@+id/dog_img"
             android:fontFamily="@font/montserrat_bold"
+            android:layout_centerVertical="true"
             android:text="Name"/>
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_origin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_name"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#9AB6ABAB"
-            android:text="Origin"/>
-
-
-        <TextView
-            android:id="@+id/tv_temperament"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textAppearance="?android:textAppearanceSmall"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#9AB6ABAB"
-            android:text="Temperament"/>
-
-
-        <TextView
-            android:id="@+id/tv_lifespan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textAppearance="?android:textAppearanceSmall"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#9AB6ABAB"
-            android:text="Lifespan"/>
-
-        <TextView
-            android:id="@+id/tv_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textAppearance="?android:textAppearanceSmall"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#9AB6ABAB"
-            android:text="Height"/>
-
-        <TextView
-            android:id="@+id/tv_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textAppearance="?android:textAppearanceSmall"
-            android:fontFamily="@font/montserrat_medium"
-            android:textColor="#9AB6ABAB"
-            android:text="Weight"/>
-
-        </LinearLayout>
         <LinearLayout
-            android:id="@+id/collaped_layout"
+            android:id="@+id/collapsed_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:animateLayoutChanges="true">
-        <TextView
-            android:id="@+id/tv_description"
+            android:layout_below="@+id/dog_name_container"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="0dp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/origin_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_name"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Origin:"
+
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#9AB6ABAB" />
+            <TextView
+                android:id="@+id/tv_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Origin"
+                android:visibility="gone"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#9AB6ABAB" />
+            </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:layout_below="@id/tv_origin"
-            android:visibility="gone"
-            android:fontFamily="@font/montserrat_medium"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#9AB6ABAB"
-            android:text="Description"/>
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/temperment_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_name"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Temperament:"
+
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#9AB6ABAB" />
+            <TextView
+                android:id="@+id/tv_temperament"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Temperament"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#9AB6ABAB" />
+
         </LinearLayout>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/lifespan_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_name"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Lifespan:"
+
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#9AB6ABAB" />
+            <TextView
+                android:id="@+id/tv_lifespan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Lifespan"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#9AB6ABAB" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/height_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_name"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Height:"
+
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#9AB6ABAB" />
+            <TextView
+                android:id="@+id/tv_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Height"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#9AB6ABAB" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/weight_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Weight"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#9AB6ABAB" />
+                <TextView
+                    android:id="@+id/tv_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Weight"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#9AB6ABAB" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/description_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_origin"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Description:"
+                android:textColor="#9AB6ABAB"
+                android:textSize="14sp"
+                 />
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_origin"
+                android:text="Description"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="#9AB6ABAB"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

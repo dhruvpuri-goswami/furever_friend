@@ -8,7 +8,7 @@ public class Dog {
     private String lifespan;
     private String height;
     private String weight;
-    private  String imageUrl;
+    private  String imageurl;
     private Boolean isExpanded;
     public Dog() {
     }
@@ -72,13 +72,7 @@ public class Dog {
         this.weight = weight;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 
     public Boolean getExpanded() {
         return isExpanded;
@@ -86,5 +80,13 @@ public class Dog {
 
     public void setExpanded(Boolean expanded) {
         isExpanded = expanded;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 }

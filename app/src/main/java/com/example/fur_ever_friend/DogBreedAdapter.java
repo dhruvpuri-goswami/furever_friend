@@ -18,10 +18,13 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 public class DogBreedAdapter extends RecyclerView.Adapter<DogBreedAdapter.DogViewHolder> implements Filterable {
 
@@ -53,6 +56,7 @@ public class DogBreedAdapter extends RecyclerView.Adapter<DogBreedAdapter.DogVie
     @Override
     public DogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dog, parent, false);
+
         return new DogViewHolder(view);
 
     }
@@ -60,27 +64,51 @@ public class DogBreedAdapter extends RecyclerView.Adapter<DogBreedAdapter.DogVie
     @Override
     public void onBindViewHolder(@NonNull DogViewHolder holder, int position) {
         Dog dog = dogs.get(position);
-        holder.linearLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-        holder.tvName.setText("Name:"+dog.getName());
-        holder.tvOrigin.setText("Origin:"+dog.getOrigin());
-        holder.tvDescription.setText("Description:"+dog.getDescription());
-        holder.tvTemperament.setText("Temperament:"+dog.getTemperament());
-        holder.tvLifespan.setText("Lifespan:"+dog.getLifespan());
-        holder.tvHeight.setText("Height:"+dog.getHeight());
-        holder.tvWeight.setText("Weight:"+dog.getWeight());
-        System.out.println(dog.getImageUrl());
+
+
+        int radius = 30;
+        holder.tvName.setText(dog.getName());
+        holder.tvOrigin.setText(dog.getOrigin());
+        holder.tvDescription.setText(dog.getDescription());
+        holder.tvTemperament.setText(dog.getTemperament());
+        holder.tvLifespan.setText(dog.getLifespan());
+        holder.tvHeight.setText(dog.getHeight());
+        holder.tvWeight.setText(dog.getWeight());
+        holder.linearLayout.setVisibility(View.GONE);
+        System.out.println(dog.toString());
+        System.out.println(dog.getImageurl());
         Glide.with(holder.itemView.getContext())
-                .load(dog.getImageUrl())
+                .load(dog.getImageurl())
+                .transform(new RoundedCorners(radius))
                 .into(holder.dog_image);
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int v=(holder.tvDescription.getVisibility()==View.GONE)? View.VISIBLE :View.GONE;
+                if (holder.linearLayout.getVisibility() == View.GONE) {
+                    holder.linearLayout.setVisibility(View.VISIBLE);
+
+                    holder.tvDescription.setVisibility(View.VISIBLE);
+                    holder.tvOrigin.setVisibility(View.VISIBLE);
+                    holder.tvTemperament.setVisibility(View.VISIBLE);
+                    holder.tvLifespan.setVisibility(View.VISIBLE);
+                    holder.tvHeight.setVisibility(View.VISIBLE);
+                    holder.tvWeight.setVisibility(View.VISIBLE);
+
+
+                    holder.linearLayout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+                } else {
+                    holder.linearLayout.setVisibility(View.GONE);
+                }
+//                int v=(holder.tvDescription.getVisibility()==View.GONE)? View.VISIBLE :View.GONE;
                 TransitionManager.beginDelayedTransition(holder.linearLayout,new AutoTransition());
-                holder.tvDescription.setVisibility(v);
+
+
             }
         });
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -132,7 +160,8 @@ public class DogBreedAdapter extends RecyclerView.Adapter<DogBreedAdapter.DogVie
             tvDescription = itemView.findViewById(R.id.tv_description);
             cardView=itemView.findViewById(R.id.card_view);
             dog_image=itemView.findViewById(R.id.dog_img);
-            linearLayout=itemView.findViewById(R.id.collaped_layout);
+            linearLayout=itemView.findViewById(R.id.collapsed_layout);
+            linearLayout.setVisibility(View.GONE);
             tvTemperament = itemView.findViewById(R.id.tv_temperament);
             tvLifespan = itemView.findViewById(R.id.tv_lifespan);
             tvHeight = itemView.findViewById(R.id.tv_height);

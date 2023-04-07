@@ -25,7 +25,7 @@ public class Dog_Breed_Activity extends AppCompatActivity  implements SearchView
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("breeds");
 
-    DogBreedAdapter adapter; // declare adapter variable
+    DogBreedAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
