@@ -6,7 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/ripple"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +21,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dog_walker_container">
+            android:id="@+id/dog_walker_container"
+            >
             <ImageView
                 android:id="@+id/walkers_img"
                 android:layout_width="100dp"
@@ -34,5 +40,14 @@
                 android:layout_centerVertical="true"
                 android:text="Dog Walker Name"/>
         </RelativeLayout>
+        <ImageView
+            android:id="@+id/check_for_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:src="@drawable/check_for_booking"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>

@@ -4,6 +4,10 @@ public class DogWalker {
     private String name;
     private String imageUrl;
 
+    public DogWalker() {
+        // Required empty constructor for Firebase
+    }
+
     public DogWalker(String name, String imageUrl) {
         this.name = name;
         this.imageUrl = imageUrl;

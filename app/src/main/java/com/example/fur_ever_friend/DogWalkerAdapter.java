@@ -1,12 +1,21 @@
 package com.example.fur_ever_friend;
 
+import static com.example.fur_ever_friend.BookingActivity.booking_btn;
+import static com.example.fur_ever_friend.BookingActivity.editTextDate;
+import static com.example.fur_ever_friend.BookingActivity.editTextTime;
+
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.ViewHolder> implements Filterable {
@@ -22,6 +32,8 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
     private List<DogWalker> dogWalkers;
     private List<DogWalker> dogWalkersFull;
     private int radius=30;
+    private int selectedItemPosition = -1;
+
 
     public DogWalkerAdapter(List<DogWalker> dogWalkers) {
         this.dogWalkers = dogWalkers;
@@ -57,6 +69,23 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
                 .load(dogWalker.getImageUrl())
                 .transform(new RoundedCorners(radius))
                 .into(holder.walker_image);
+
+
+
+        boolean isSelected = position == selectedItemPosition;
+        holder.itemView.setSelected(isSelected);
+        holder.check.setVisibility(isSelected ? View.VISIBLE : View.GONE);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int previousSelectedItemPosition = selectedItemPosition;
+                selectedItemPosition = holder.getAdapterPosition();
+                notifyItemChanged(previousSelectedItemPosition);
+                notifyItemChanged(selectedItemPosition);
+                }
+        });
     }
 
     @Override
@@ -102,12 +131,12 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView walker_image;
+        ImageView walker_image,check;
         TextView walker_name;
 
         public ViewHolder(View itemView) {
             super(itemView);
-
+            check=itemView.findViewById(R.id.check_for_booking);
             walker_image = itemView.findViewById(R.id.walkers_img);
             walker_name = itemView.findViewById(R.id.dog_walker_name);
         }

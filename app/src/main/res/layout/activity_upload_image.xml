@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadImage"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_menu_gallery" />
+    <EditText
+        android:id="@+id/walker_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Enter your name "/>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/upload_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Button"
+
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_gradient"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Upload Now"
+        android:textColor="@color/white"
+        />
+</LinearLayout>
