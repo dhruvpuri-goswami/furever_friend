@@ -1,5 +1,6 @@
 package com.example.fur_ever_friend;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +24,8 @@ public class Register extends AppCompatActivity {
 
     EditText email,fullname,mobile,password;
     RadioGroup radioGroup;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class Register extends AppCompatActivity {
           mobile=findViewById(R.id.phone_num);
          password=findViewById(R.id.password);
          radioGroup=findViewById(R.id.roleGroup);
+         sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
+         editor=sharedPreferences.edit();
          Button registerBtn=findViewById(R.id.continue_btn);
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,18 +56,21 @@ public class Register extends AppCompatActivity {
                     databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.hasChild(email_text)){
+                            if(snapshot.hasChild(mobile_num)){
                                 Toast.makeText(Register.this, "Phone is already Registred", Toast.LENGTH_SHORT).show();
                             }else{
-                                databaseReference.child("users").child(email_text).child("Fullname").setValue(fullName);
-                                databaseReference.child("users").child(email_text).child("Mobile").setValue(mobile_num);
-                                databaseReference.child("users").child(email_text).child("Password").setValue(Password);
-                                databaseReference.child("users").child(email_text).child("Role").setValue(roleButton.getText());
-                                Log.d("selct",roleButton.getText().toString());
+                                editor.putString("mobile",mobile_num);
+                                editor.putString("role",roleButton.getText().toString());
+                                databaseReference.child("users").child(mobile_num).child("Fullname").setValue(fullName);
+                                databaseReference.child("users").child(mobile_num).child("Email").setValue(email_text);
+                                databaseReference.child("users").child(mobile_num).child("Password").setValue(Password);
+                                databaseReference.child("users").child(mobile_num).child("Role").setValue(roleButton.getText());
                                 if(roleButton.getText().toString().equals("Walker")){
-                                    databaseReference.child("walker").child(email_text).child("Fullname").setValue(fullName);
-                                    databaseReference.child("walker").child(email_text).child("Mobile").setValue(mobile_num);
-                                    databaseReference.child("walker").child(email_text).child("Status").setValue("Available");
+                                    DogWalker dogWalker=new DogWalker(fullName,mobile_num,email_text);
+                                    databaseReference.child("dog_walkers").child(mobile_num).setValue(dogWalker);
+//                                    databaseReference.child("dog_walkers").child(mobile_num).child("Fullname").setValue(fullName);
+//                                    databaseReference.child("dog_walkers").child(mobile_num).child("Mobile").setValue(email_text);
+//                                    databaseReference.child("dog_walkers").child(mobile_num).child("Status").setValue("Available");
                                 }
                                 Toast.makeText(Register.this, "Users Registred", Toast.LENGTH_SHORT).show();
                                 finish();

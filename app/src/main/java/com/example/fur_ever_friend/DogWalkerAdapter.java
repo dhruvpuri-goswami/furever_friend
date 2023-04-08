@@ -25,6 +25,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.ViewHolder> implements Filterable {
@@ -87,13 +88,22 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
                 }
         });
     }
+    public DogWalker getSelectedItem(){
+        if(selectedItemPosition!=-1){
+            return dogWalkers.get(selectedItemPosition);
+        }else{
+            return null;
+        }
+    }
 
     @Override
     public int getItemCount() {
         return dogWalkers.size();
     }
 
-
+    public List<DogWalker> getData(){
+        return Collections.singletonList(dogWalkers.get(selectedItemPosition));
+    }
 
     @Override
     public Filter getFilter() {

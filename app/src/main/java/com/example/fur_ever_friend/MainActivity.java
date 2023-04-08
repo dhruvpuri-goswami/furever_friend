@@ -2,10 +2,19 @@ package com.example.fur_ever_friend;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -42,4 +51,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
     }
 
+    public void moveToNew(View view) {
+        Intent i=new Intent(MainActivity.this,BookingActivity.class);
+        startActivity(i);
+    }
+
+    public void moveToProfile(View view) {
+        Intent i=new Intent(MainActivity.this,UploadImage.class);
+        startActivity(i);
+    }
 }

@@ -32,6 +32,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,7 +65,6 @@ public class Otp_Validation_Activity extends AppCompatActivity {
 
         ProgressBar progressBar=findViewById(R.id.otpProgress);
         setupOTP();
-        autoOtpReceiver();
 
 
         btn_otp.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +87,13 @@ public class Otp_Validation_Activity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             btn_otp.setVisibility(View.VISIBLE);
                             if(task.isSuccessful()){
+                                String number=task.getResult().getUser().getPhoneNumber();
+                                String login=number.substring(3);
+                                DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+                                String role=databaseReference.child("users").child(login).child("Role").toString();
+                                if(role.equals("Walker")){
+                                    Toast.makeText(Otp_Validation_Activity.this, "Walker", Toast.LENGTH_SHORT).show();
+                                }
                                 Intent intent1=new Intent(getApplicationContext(),MainActivity.class);
                                 intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent1);
@@ -97,6 +105,7 @@ public class Otp_Validation_Activity extends AppCompatActivity {
                 }
             }
         });
+        autoOtpReceiver();
     }
 
     private void autoOtpReceiver() {
@@ -111,14 +120,14 @@ public class Otp_Validation_Activity extends AppCompatActivity {
                 int o4=Character.getNumericValue(otp.charAt(3));
                 int o5=Character.getNumericValue(otp.charAt(4));
                 int o6=Character.getNumericValue(otp.charAt(5));
-                
+
                 inputCode1.setText(String.valueOf(o1));
                 inputCode2.setText(String.valueOf(o2));
                 inputCode3.setText(String.valueOf(o3));
                 inputCode4.setText(String.valueOf(o4));
                 inputCode5.setText(String.valueOf(o5));
                 inputCode6.setText(String.valueOf(o6));
-                
+                Log.d("OTP",otp);
             }
 
             @Override

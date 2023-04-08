@@ -84,6 +84,27 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:text="Select Pickup Location:" />
+        <Button
+            android:id="@+id/select_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Maps"
+            android:fontFamily="@font/montserrat_bold"/>
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,7 +132,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/walkers_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:scrollbars="vertical"
         android:scrollIndicators="top"
 
@@ -130,9 +151,5 @@
         android:text="Book Now"
         android:textColor="@color/white"
         />
-
-    <include
-        android:id="@+id/bottom_sheet"
-        layout="@layout/booking_bottom_shit" />
 
 </LinearLayout>

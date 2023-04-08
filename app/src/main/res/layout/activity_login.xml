@@ -50,7 +50,7 @@
             android:layout_height="25dp"
             android:layout_marginTop="5dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/symbol_email" />
+            android:src="@drawable/call_" />
 
 
         <EditText
@@ -60,8 +60,8 @@
             android:layout_marginLeft="7dp"
             android:gravity="center_vertical"
             android:fontFamily="@font/montserrat_medium"
-            android:inputType="text"
-            android:hint="Email ID"
+            android:inputType="phone"
+            android:hint="Mobile Number"
             android:layout_gravity="center_vertical"
             android:paddingBottom="8dp"
             android:textColor="@android:color/black"

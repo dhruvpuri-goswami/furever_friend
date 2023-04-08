@@ -50,6 +50,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="end"
+            android:onClick="moveToProfile"
             android:background="@drawable/profile_round"
             android:src="@drawable/dog_cute" />
         </LinearLayout>
@@ -94,6 +95,8 @@
                 />
 
             <Button
+                android:id="@+id/book"
+                android:onClick="moveToNew"
                 style="@android:style/Widget.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
