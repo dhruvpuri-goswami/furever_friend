@@ -5,13 +5,15 @@
     android:id="@+id/booking_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Maps_Activity">
+    android:layout_gravity="top"
+    android:background="@drawable/rounded_bottom_sheet"
+    >
     <FrameLayout
+        android:layout_gravity="top"
         android:id="@+id/bottom_sheet_layout"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:background="@drawable/rounded_bottom_sheet">
+       >
 
         <LinearLayout
             android:layout_width="match_parent"

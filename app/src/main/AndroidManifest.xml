@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,18 +17,22 @@
         android:theme="@style/Theme.Fur_ever_friend"
         tools:targetApi="33">
         <activity
-            android:name=".UploadImage"
+            android:name=".WalkerAppoinment"
             android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
+            android:name=".UploadImage"
+            android:exported="false"/>
+        <activity
             android:name=".BookingActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-           </activity>
+        </activity>
         <activity
             android:name=".Dog_Breed_Activity"
             android:exported="false" />
@@ -62,7 +66,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Register"
             android:exported="true"

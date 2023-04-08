@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,6 +25,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +44,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
     DogWalkerAdapter dogWalkerAdapter;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("dog_walkers");
+    DatabaseReference databaseReference=database.getReference("booking");
     androidx.appcompat.widget.SearchView searchView;
     TextView selectDogwalkerTv;
 
@@ -56,14 +62,14 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(this));
 
-        View bottomSheet = findViewById(R.id.bottom_sheet);
-        TextView dateForBookingtv = bottomSheet.findViewById(R.id.date_for_booking);
-        TextView timeForBookingtv = bottomSheet.findViewById(R.id.time_for_booking);
-        TextView dogWalkerCompanytv = bottomSheet.findViewById(R.id.dog_walker_company);
-        TextView dogWalkerNametv = bottomSheet.findViewById(R.id.dog_walker_name);
-        ImageView dogWalkerImage=bottomSheet.findViewById(R.id.dog_walker_image);
-        TextView dogWalkerFee=bottomSheet.findViewById(R.id.dog_walker_fee);
-        TextView dog_walker_comapny_boldtv=bottomSheet.findViewById(R.id.dog_walker_comapny_bold);
+//        View bottomSheet = findViewById(R.layout.booking_bottom_shit);
+//        TextView dateForBookingtv = bottomSheet.findViewById(R.id.date_for_booking);
+//        TextView timeForBookingtv = bottomSheet.findViewById(R.id.time_for_booking);
+//        TextView dogWalkerCompanytv = bottomSheet.findViewById(R.id.dog_walker_company);
+//        TextView dogWalkerNametv = bottomSheet.findViewById(R.id.dog_walker_name);
+//        ImageView dogWalkerImage=bottomSheet.findViewById(R.id.dog_walker_image);
+//        TextView dogWalkerFee=bottomSheet.findViewById(R.id.dog_walker_fee);
+//        TextView dog_walker_comapny_boldtv=bottomSheet.findViewById(R.id.dog_walker_comapny_bold);
 
         editTextDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +85,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 // set the selected date to the EditText
                                 editTextDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-                                dateForBookingtv.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                                //dateForBookingtv.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
                             }
 
                         }, year, month, dayOfMonth);
@@ -98,7 +104,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 editTextTime.setText(hourOfDay + ":" + minute);
-                                timeForBookingtv.setText(hourOfDay + ":" + minute);
+                                //timeForBookingtv.setText(hourOfDay + ":" + minute);
                             }
                         }, hour, minute, false);
                 timePickerDialog.show();
@@ -119,11 +125,32 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                 }
                 else {
                     BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(BookingActivity.this);
-                    View bottomSheetView = getLayoutInflater().inflate(R.layout.booking_bottom_shit, null);
+//                    View bottomSheetView = getLayoutInflater().inflate(R.layout.booking_bottom_shit, null);
+                    View layout= LayoutInflater.from(BookingActivity.this).inflate(R.layout.booking_bottom_shit,null);
+                    DogWalker selectedDogWalker=dogWalkerAdapter.getSelectedItem();
+                    if(selectedDogWalker!=null){
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            Window window = getWindow();
+                            window.setStatusBarColor(Color.TRANSPARENT);
+                        }
+                        bottomSheetDialog.setContentView(layout);
+                        bottomSheetDialog.setCancelable(true);
+                        bottomSheetDialog.setCanceledOnTouchOutside(true);
+                        bottomSheetDialog.show();
 
-                    bottomSheetDialog.setContentView(bottomSheetView);
-                    bottomSheetDialog.show();
-                    Toast.makeText(BookingActivity.this, "Booking success", Toast.LENGTH_SHORT).show();
+                        TextView dogWalkerName=layout.findViewById(R.id.dog_walker_name);
+                        ImageView dogWalkerImage=layout.findViewById(R.id.dog_walker_image);
+                        Glide.with(getApplicationContext()).load(selectedDogWalker.getImageUrl()).into(dogWalkerImage);
+                        dogWalkerName.setText(selectedDogWalker.getName());
+                        TextView dogWalkerDate=layout.findViewById(R.id.date_for_booking);
+                        dogWalkerDate.setText(editTextDate.getText());
+                        TextView dogWalkerTime=layout.findViewById(R.id.time_for_booking);
+                        dogWalkerTime.setText(editTextTime.getText());
+                        Toast.makeText(BookingActivity.this, "Booking success", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(BookingActivity.this, "Select Walker", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
             }
         });

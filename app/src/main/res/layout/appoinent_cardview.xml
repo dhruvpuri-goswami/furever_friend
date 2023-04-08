@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/appoinment_cardview"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/ripple">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dog_walker_container"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            >
+            <ImageView
+                android:id="@+id/users_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date_for_appoinment_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30sp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Date for appoinment:"
+                    android:textAppearance="?android:textAppearanceMedium"
+
+                    android:textColor="@color/black"
+
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date_for_appoinment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginTop="8sp"
+                    android:baselineAligned="false"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Date for appoinment"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/time_for_appoinment_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30sp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Time for appoinment:"
+                    android:layout_marginTop="8sp"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/time_for_appoinment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30sp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_marginTop="8sp"
+                    android:text="Time for appoinment"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

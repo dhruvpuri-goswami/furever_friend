@@ -75,7 +75,7 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
         boolean isSelected = position == selectedItemPosition;
         holder.itemView.setSelected(isSelected);
         holder.check.setVisibility(isSelected ? View.VISIBLE : View.GONE);
-
+        
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,8 +86,15 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
                 notifyItemChanged(selectedItemPosition);
                 }
         });
-    }
 
+    }
+    public DogWalker getSelectedDogWalker() {
+        if (selectedItemPosition != -1) {
+            return dogWalkers.get(selectedItemPosition);
+        } else {
+            return null;
+        }
+    }
     @Override
     public int getItemCount() {
         return dogWalkers.size();
@@ -126,7 +133,13 @@ public class DogWalkerAdapter extends RecyclerView.Adapter<DogWalkerAdapter.View
         };
     }
 
-
+    public DogWalker getSelectedItem() {
+        if (selectedItemPosition >= 0 && selectedItemPosition < dogWalkersFull.size()) {
+            return dogWalkersFull.get(selectedItemPosition);
+        } else {
+            return null;
+        }
+    }
 
 
     static class ViewHolder extends RecyclerView.ViewHolder {

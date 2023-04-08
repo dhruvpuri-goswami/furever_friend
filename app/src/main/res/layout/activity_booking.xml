@@ -111,7 +111,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/walkers_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:scrollbars="vertical"
         android:scrollIndicators="top"
 
@@ -131,8 +131,6 @@
         android:textColor="@color/white"
         />
 
-    <include
-        android:id="@+id/bottom_sheet"
-        layout="@layout/booking_bottom_shit" />
+
 
 </LinearLayout>

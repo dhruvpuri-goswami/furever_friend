@@ -11,6 +11,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -44,6 +45,7 @@ public class UploadImage extends AppCompatActivity {
     DatabaseReference mDatabase;
     Uri imageUri;
     ProgressDialog progressDialog;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,7 @@ public class UploadImage extends AppCompatActivity {
         image_view=findViewById(R.id.image_view);
         walker_name=findViewById(R.id.walker_name);
         uploadImageButton=findViewById(R.id.upload_image);
+        sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         mDatabase = database.getReference();
 
@@ -64,7 +67,7 @@ public class UploadImage extends AppCompatActivity {
                 intent.setType("image/*");
                 startActivityForResult(intent, PICK_IMAGE_REQUEST);
 
-                }
+            }
 
         });
         uploadImageButton.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +97,9 @@ public class UploadImage extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             String walkerName = walker_name.getText().toString();
+                            String mobile=sharedPreferences.getString("mobile","");
                             DogWalker dogWalker = new DogWalker(walkerName, uri.toString());
-                            mDatabase.child("dog_walkers").push().setValue(dogWalker);
+                            mDatabase.child("dog_walkers").child(mobile).setValue(dogWalker);
                             Toast.makeText(UploadImage.this, "Upload successful", Toast.LENGTH_SHORT).show();
                         }
                     });
