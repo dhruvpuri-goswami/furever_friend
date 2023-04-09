@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +48,7 @@ public class HomeFragment extends Fragment {
     SharedPreferences sharedPreferences;
     ImageView profileImage;
     Button book;
-
+    private int radius=30;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -97,7 +98,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                Log.d("data",snapshot.getValue().toString());
-                Glide.with(HomeFragment.this).load(Objects.requireNonNull(snapshot.getValue())).into(profileImage);
+                Glide.with(HomeFragment.this)
+                        .load(Objects.requireNonNull(snapshot.getValue()))
+                        .transform(new RoundedCorners(radius))
+                        .into(profileImage);
             }
 
             @Override
