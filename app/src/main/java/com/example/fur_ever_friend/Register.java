@@ -66,7 +66,7 @@ public class Register extends AppCompatActivity {
                                 databaseReference.child("users").child(mobile_num).child("Password").setValue(Password);
                                 databaseReference.child("users").child(mobile_num).child("Role").setValue(roleButton.getText());
                                 if(roleButton.getText().toString().equals("Walker")){
-                                    DogWalker dogWalker=new DogWalker(fullName,mobile_num,email_text);
+                                    DogWalker dogWalker=new DogWalker(email_text,"",mobile_num,fullName,"","Available");
                                     databaseReference.child("dog_walkers").child(mobile_num).setValue(dogWalker);
 //                                    databaseReference.child("dog_walkers").child(mobile_num).child("Fullname").setValue(fullName);
 //                                    databaseReference.child("dog_walkers").child(mobile_num).child("Mobile").setValue(email_text);

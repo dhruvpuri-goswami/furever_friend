@@ -1,21 +1,24 @@
 package com.example.fur_ever_friend;
 
 public class DogWalker {
-    private String name;
+    private String emailID;
     private String imageUrl;
-    private String mobile,EmailID,Price;
-    private String Status;
+    private String mobile;
+    private String name;
+    private String price;
+    private String status;
 
     public DogWalker() {
         // Required empty constructor for Firebase
     }
 
-    public DogWalker(String name,String mobile,String Emailid) {
-        this.name = name;
-        this.imageUrl="";
+    public DogWalker(String Emailid,String imageUrl,String mobile,String name,String price,String status) {
+        this.emailID=Emailid;
+        this.imageUrl=imageUrl;
         this.mobile=mobile;
-        this.EmailID=Emailid;
-        this.Status="Available";
+        this.name=name;
+        this.price=price;
+        this.status=status;
     }
 //    public DogWalker(String imageUrl,String price){
 //        this.name=this.getName();
@@ -26,36 +29,36 @@ public class DogWalker {
 //        this.Price=price;
 //    }
 
-    public String getMobile() {
+    public String getmobile() {
         return mobile;
     }
 
-    public void setMobile(String mobile) {
+    public void setmobile(String mobile) {
         this.mobile = mobile;
     }
 
     public String getEmailID() {
-        return EmailID;
+        return emailID;
     }
 
     public void setEmailID(String emailID) {
-        EmailID = emailID;
+        emailID = emailID;
     }
 
     public String getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(String price) {
-        Price = price;
+        this.price = price;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        status = status;
     }
 
     public String getName() {

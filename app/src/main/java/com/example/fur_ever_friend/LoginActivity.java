@@ -91,9 +91,11 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("role","Customer");
                                     if(role.equals("Walker")) {
                                         editor.putString("role","Walker");
+                                        editor.commit();
+                                        Intent i=new Intent(LoginActivity.this,WalkerAppoinment.class);
+                                        startActivity(i);
                                         Toast.makeText(LoginActivity.this, "You are walker", Toast.LENGTH_SHORT).show();
                                     }
-                                    editor.commit();
                                     Intent i=new Intent(LoginActivity.this,MainActivity.class);
                                     startActivity(i);
                                     Toast.makeText(LoginActivity.this, "Successfully Login", Toast.LENGTH_SHORT).show();
@@ -131,16 +133,18 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void CheckLogin(){
         sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
-        String mobileNumber = sharedPreferences.getString("mobile", "");
-        String role = sharedPreferences.getString("role", "");
-        Log.d("role", role);
-        if (!mobileNumber.isEmpty()) {
-            if (role.equals("Walker")) {
-                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(i);
-            } else {
-                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(i);
+        if(sharedPreferences.contains("mobile")) {
+            String mobileNumber = sharedPreferences.getString("mobile", "");
+            String role = sharedPreferences.getString("role", "");
+            Log.d("role", role);
+            if (!mobileNumber.isEmpty()) {
+                if (role.equals("Walker")) {
+                    Intent i = new Intent(LoginActivity.this, WalkerAppoinment.class);
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
+                }
             }
         }
     }

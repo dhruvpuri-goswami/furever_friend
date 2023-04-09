@@ -1,22 +1,33 @@
 package com.example.fur_ever_friend;
 
 public class Booking {
-    private String walkerName;
+    private String walkerId;
     private String date;
     private String time;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     Booking(){}
-    public Booking(String walkerName,String date,String time){
-        this.walkerName=walkerName;
+    public Booking(String walkerId,String date,String time,String userId){
+        this.walkerId=walkerId;
         this.date=date;
         this.time=time;
+        this.userId=userId;
     }
 
-    public String getWalkerName() {
-        return walkerName;
+    public String getWalkerId() {
+        return walkerId;
     }
 
-    public void setWalkerName(String walkerName) {
-        this.walkerName = walkerName;
+    public void setWalkerId(String walkerId) {
+        this.walkerId = walkerId;
     }
 
     public String getDate() {

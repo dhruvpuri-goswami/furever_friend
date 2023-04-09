@@ -91,24 +91,24 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-        profileImage=view.findViewById(R.id.profile_icon);
-        sharedPreferences = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
-        String mobile = sharedPreferences.getString("mobile", "");
-        databaseReference.child("dog_walkers").child(mobile).child("imageUrl").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                Log.d("data",snapshot.getValue().toString());
-                Glide.with(HomeFragment.this)
-                        .load(Objects.requireNonNull(snapshot.getValue()))
-                        .transform(new RoundedCorners(radius))
-                        .into(profileImage);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        profileImage=view.findViewById(R.id.profile_icon);
+//        sharedPreferences = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
+//        String mobile = sharedPreferences.getString("mobile", "");
+//        databaseReference.child("dog_walkers").child(mobile).child("imageUrl").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+////                Log.d("data",snapshot.getValue().toString());
+////                Glide.with(HomeFragment.this)
+////                        .load(Objects.requireNonNull(snapshot.getValue()))
+////                        .transform(new RoundedCorners(radius))
+////                        .into(profileImage);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         return view;
     }
 

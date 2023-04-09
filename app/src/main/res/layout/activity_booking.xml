@@ -104,6 +104,13 @@
             android:layout_height="wrap_content"
             android:text="Open Maps"
             android:fontFamily="@font/montserrat_bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/location_select"
+            android:fontFamily="@font/montserrat_medium"
+            android:visibility="gone"
+            android:text="Location is Selected"/>
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"

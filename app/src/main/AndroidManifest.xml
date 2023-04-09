@@ -25,6 +25,8 @@
 
         </activity>
 
+        <activity android:name=".WalkerAppoinment"
+            android:exported="false"/>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyClLlLvZP4vQp2bo9Uih0-f_2LYeE2qhiQ" />
@@ -54,11 +56,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity
             android:name=".SendOTP"
@@ -74,12 +72,20 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"/>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".Register"
             android:exported="true"
-            android:parentActivityName=".LoginActivity" />
+            android:parentActivityName=".LoginActivity" >
+
+        </activity>
     </application>
 
 </manifest>

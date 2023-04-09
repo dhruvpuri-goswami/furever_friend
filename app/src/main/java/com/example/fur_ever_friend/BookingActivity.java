@@ -7,9 +7,12 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,6 +33,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.shadow.ShadowRenderer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,7 +54,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
     DatabaseReference myRef = database.getReference("dog_walkers");
     DatabaseReference databaseReference=database.getReference("booking");
     androidx.appcompat.widget.SearchView searchView;
-    TextView selectDogwalkerTv;
+    TextView selectDogwalkerTv,locationDone;
     LatLng latLng;
     static  final int PICK_UP_POINT=999;
 
@@ -68,7 +72,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
         searchView.setOnQueryTextListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        locationDone=findViewById(R.id.location_select);
         editTextDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,9 +129,9 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                     BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(BookingActivity.this);
                     View layout= LayoutInflater.from(BookingActivity.this).inflate(R.layout.bottom_sheet,null);
                     DogWalker selectedDogWalker=dogWalkerAdapter.getSelectedItem();
-                    if(selectedDogWalker!=null){
+                    if(selectedDogWalker!=null&&latLng!=null){
                         bottomSheetDialog.setContentView(layout);
-                        bottomSheetDialog.setCancelable(false);
+                        bottomSheetDialog.setCancelable(true);
                         bottomSheetDialog.setCanceledOnTouchOutside(true);
                         bottomSheetDialog.show();
                         TextView dogWalkerName=layout.findViewById(R.id.dog_walker_name);
@@ -138,13 +142,14 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                         dogWalkerDate.setText(editTextDate.getText());
                         TextView dogWalkerTime=layout.findViewById(R.id.time_for_booking);
                         dogWalkerTime.setText(editTextTime.getText());
-                        Booking booking=new Booking(selectedDogWalker.getName(),editTextDate.getText().toString(),editTextTime.getText().toString());
+                        String walkerId=selectedDogWalker.getmobile();
+                        Booking booking=new Booking(walkerId,editTextDate.getText().toString(),editTextTime.getText().toString(),getUserId());
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).setValue(booking);
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).child("Pickup Location").child("Latitude").setValue(latLng.latitude);
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).child("Pickup Location").child("Longtitude").setValue(latLng.longitude);
                         Toast.makeText(BookingActivity.this, "Booking success", Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(BookingActivity.this, "Select Walker", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(BookingActivity.this, "Fill Empty Details", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -158,7 +163,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
             }
         });
         List<DogWalker> dogWalkers = new ArrayList<>();
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.orderByChild("Status").equalTo("Available").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dogWalkers.clear(); // clear the list of dogs
@@ -207,7 +212,28 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==PICK_UP_POINT){
-            latLng=data.getParcelableExtra("picked_point");
+            if(data!=null) {
+                latLng = data.getParcelableExtra("picked_point");
+                selectLocation.setVisibility(View.GONE);
+                locationDone.setVisibility(View.VISIBLE);
+            }else{
+                new AlertDialog.Builder(BookingActivity.this)
+                        .setTitle("Select Location")
+                        .setMessage("Pickup Location is not Selected")
+                        .setPositiveButton("Select Location", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent pickUpPoint=new Intent(BookingActivity.this,Maps_Activity.class);
+                                startActivityForResult(pickUpPoint,PICK_UP_POINT);
+                            }
+                        }).create()
+                        .show();
+            }
+
         }
+    }
+    public String getUserId(){
+        SharedPreferences sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
+        return sharedPreferences.getString("mobile","");
     }
 }

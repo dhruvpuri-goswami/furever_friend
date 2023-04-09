@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -23,7 +24,9 @@ public class WalkerAppoinment extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DatabaseReference databaseReference;
     private List<AppoinmentModel> appoinmentModelList;
+    private List<PickUpModel> locations;
     private AppoinmentAdapter appoinmentAdapter;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +37,32 @@ public class WalkerAppoinment extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         databaseReference = FirebaseDatabase.getInstance().getReference().child("booking");
         appoinmentModelList = new ArrayList<>();
-        appoinmentAdapter = new AppoinmentAdapter(appoinmentModelList);
+        locations=new ArrayList<>();
+        appoinmentAdapter = new AppoinmentAdapter(appoinmentModelList,locations);
         recyclerView.setAdapter(appoinmentAdapter);
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
+        String mobile=sharedPreferences.getString("mobile","");
+        String role=sharedPreferences.getString("role","");
+
+
+        databaseReference.orderByChild("walkerId").equalTo(mobile).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 appoinmentModelList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    AppoinmentModel appoinmentModel = dataSnapshot.getValue(AppoinmentModel.class);
+                for (DataSnapshot snapshot1:snapshot.getChildren()){
+                    AppoinmentModel appoinmentModel = snapshot1.getValue(AppoinmentModel.class);
                     appoinmentModelList.add(appoinmentModel);
+                    PickUpModel pickUpModel=snapshot1.child("Pickup Location").getValue(PickUpModel.class);
+                    locations.add(pickUpModel);
                 }
+
                 appoinmentAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e(TAG, "Error retrieving data", error.toException());
+
             }
         });
     }
