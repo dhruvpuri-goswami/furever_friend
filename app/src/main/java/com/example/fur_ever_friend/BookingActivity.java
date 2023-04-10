@@ -163,7 +163,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
             }
         });
         List<DogWalker> dogWalkers = new ArrayList<>();
-        myRef.orderByChild("Status").equalTo("Available").addValueEventListener(new ValueEventListener() {
+        myRef.orderByChild("status").equalTo("Available").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dogWalkers.clear(); // clear the list of dogs

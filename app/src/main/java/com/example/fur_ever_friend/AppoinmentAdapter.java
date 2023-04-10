@@ -1,10 +1,13 @@
 package com.example.fur_ever_friend;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,10 +26,12 @@ public class AppoinmentAdapter extends RecyclerView.Adapter<AppoinmentAdapter.Vi
 
     private List<AppoinmentModel> appointments;
     private List<PickUpModel> locations;
+    private List<String> keys;
 
-    public AppoinmentAdapter(List<AppoinmentModel> appointments,List<PickUpModel> locations) {
+    public AppoinmentAdapter(List<AppoinmentModel> appointments,List<PickUpModel> locations,List<String> keys) {
         this.appointments = appointments;
         this.locations=locations;
+        this.keys=keys;
     }
 
     @NonNull
@@ -40,8 +45,18 @@ public class AppoinmentAdapter extends RecyclerView.Adapter<AppoinmentAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull AppoinmentAdapter.ViewHolder holder, int position) {
         AppoinmentModel appoinment=appointments.get(position);
+        int pos=position;
+        holder.userId.setText(appoinment.getUserId());
         holder.dateForAppoinment.setText(appoinment.getDate());
         holder.timeForAppoinment.setText(appoinment.getTime());
+        holder.startService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),TrackerActivity.class);
+                intent.putExtra("key",keys.get(pos));
+                view.getContext().startActivity(intent);
+            }
+        });
         PickUpModel pickUpModel=locations.get(position);
         holder.mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
@@ -63,13 +78,16 @@ public class AppoinmentAdapter extends RecyclerView.Adapter<AppoinmentAdapter.Vi
     static class ViewHolder extends RecyclerView.ViewHolder {
 
 
-        TextView dateForAppoinment,timeForAppoinment;
+        TextView dateForAppoinment,timeForAppoinment,userId;
+        Button startService;
         MapView mapView;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            userId=itemView.findViewById(R.id.userId_tv_value);
             dateForAppoinment=itemView.findViewById(R.id.date_for_appoinment);
             timeForAppoinment = itemView.findViewById(R.id.time_for_appoinment);
+            startService=itemView.findViewById(R.id.start_tracking);
             mapView=itemView.findViewById(R.id.pickup_map);
             if(mapView!=null){
                 mapView.onCreate(null);

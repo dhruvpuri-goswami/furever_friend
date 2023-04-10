@@ -20,13 +20,9 @@
             android:id="@+id/dog_walker_container"
             android:gravity="center_vertical"
             android:padding="16dp"
+            android:orientation="vertical"
             >
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/pickup_map"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                map:mapType="normal"
-                android:layout_gravity="center_vertical"/>
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -34,54 +30,110 @@
                 android:layout_margin="10sp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/date_for_appoinment_tv"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30sp"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:text="Date for appoinment:"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/userid_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="UserId:"
+                        android:textAppearance="?android:textAppearanceMedium"
 
-                    android:textColor="@color/black"
+                        android:textColor="@color/black"
 
-                    android:textStyle="bold" />
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/date_for_appoinment"
+                    <TextView
+                        android:id="@+id/userId_tv_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginTop="8sp"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Date for appoinment"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30sp"
-                    android:layout_marginTop="8sp"
-                    android:baselineAligned="false"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="Date for appoinment"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/date_for_appoinment_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Date"
+                        android:textAppearance="?android:textAppearanceMedium"
 
-                <TextView
-                    android:id="@+id/time_for_appoinment_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30sp"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:text="Time for appoinment:"
-                    android:layout_marginTop="8sp"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                        android:textColor="@color/black"
 
-                <TextView
-                    android:id="@+id/time_for_appoinment"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/date_for_appoinment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30sp"
+                        android:layout_marginTop="8sp"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Date for appoinment"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30sp"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:layout_marginTop="8sp"
-                    android:text="Time for appoinment"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/time_for_appoinment_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Time:"
+                        android:layout_marginTop="8sp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/time_for_appoinment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30sp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:layout_marginTop="8sp"
+                        android:text="Time for appoinment"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
             </LinearLayout>
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/pickup_map"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                map:mapType="normal" />
+            <Button
+                android:id="@+id/start_tracking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Start Service"/>
         </LinearLayout>
 
 

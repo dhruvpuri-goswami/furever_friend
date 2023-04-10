@@ -25,6 +25,7 @@ public class WalkerAppoinment extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private List<AppoinmentModel> appoinmentModelList;
     private List<PickUpModel> locations;
+    private List<String> keys;
     private AppoinmentAdapter appoinmentAdapter;
     SharedPreferences sharedPreferences;
 
@@ -38,7 +39,8 @@ public class WalkerAppoinment extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("booking");
         appoinmentModelList = new ArrayList<>();
         locations=new ArrayList<>();
-        appoinmentAdapter = new AppoinmentAdapter(appoinmentModelList,locations);
+        keys=new ArrayList<>();
+        appoinmentAdapter = new AppoinmentAdapter(appoinmentModelList,locations,keys);
         recyclerView.setAdapter(appoinmentAdapter);
 
         sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
@@ -50,11 +52,14 @@ public class WalkerAppoinment extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 appoinmentModelList.clear();
+                locations.clear();
+                keys.clear();
                 for (DataSnapshot snapshot1:snapshot.getChildren()){
                     AppoinmentModel appoinmentModel = snapshot1.getValue(AppoinmentModel.class);
                     appoinmentModelList.add(appoinmentModel);
                     PickUpModel pickUpModel=snapshot1.child("Pickup Location").getValue(PickUpModel.class);
                     locations.add(pickUpModel);
+                    keys.add(snapshot1.getKey());
                 }
 
                 appoinmentAdapter.notifyDataSetChanged();

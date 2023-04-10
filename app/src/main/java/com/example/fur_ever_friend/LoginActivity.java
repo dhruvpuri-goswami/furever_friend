@@ -95,9 +95,12 @@ public class LoginActivity extends AppCompatActivity {
                                         Intent i=new Intent(LoginActivity.this,WalkerAppoinment.class);
                                         startActivity(i);
                                         Toast.makeText(LoginActivity.this, "You are walker", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        editor.commit();
+                                        Intent i=new Intent(LoginActivity.this,MainActivity.class);
+                                        startActivity(i);
                                     }
-                                    Intent i=new Intent(LoginActivity.this,MainActivity.class);
-                                    startActivity(i);
+
                                     Toast.makeText(LoginActivity.this, "Successfully Login", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Toast.makeText(LoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
