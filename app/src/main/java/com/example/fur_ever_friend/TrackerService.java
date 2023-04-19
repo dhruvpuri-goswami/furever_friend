@@ -58,8 +58,14 @@ public class TrackerService extends Service {
     public void onCreate() {
         super.onCreate();
         manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        buildNotification();
-        requestLocationUpdates();
+
+        locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)||locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            buildNotification();
+            requestLocationUpdates();
+        }else{
+            Toast.makeText(this, "Enable Location", Toast.LENGTH_SHORT).show();
+        }
     }
     private void buildNotification() {
         String stop = "stop";
