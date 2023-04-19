@@ -27,11 +27,13 @@ public class AppoinmentAdapter extends RecyclerView.Adapter<AppoinmentAdapter.Vi
     private List<AppoinmentModel> appointments;
     private List<PickUpModel> locations;
     private List<String> keys;
+    private int check;
 
-    public AppoinmentAdapter(List<AppoinmentModel> appointments,List<PickUpModel> locations,List<String> keys) {
+    public AppoinmentAdapter(List<AppoinmentModel> appointments,List<PickUpModel> locations,List<String> keys,int check) {
         this.appointments = appointments;
         this.locations=locations;
         this.keys=keys;
+        this.check=check;
     }
 
     @NonNull
@@ -52,9 +54,15 @@ public class AppoinmentAdapter extends RecyclerView.Adapter<AppoinmentAdapter.Vi
         holder.startService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(view.getContext(),TrackerActivity.class);
-                intent.putExtra("key",keys.get(pos));
-                view.getContext().startActivity(intent);
+                if(check==1) {
+                    Intent intent = new Intent(view.getContext(), TrackerActivity.class);
+                    intent.putExtra("key", keys.get(pos));
+                    view.getContext().startActivity(intent);
+                }else{
+                    Intent intent=new Intent(view.getContext(),Tracker.class);
+                    intent.putExtra("key",keys.get(pos));
+                    view.getContext().startActivity(intent);
+                }
             }
         });
         PickUpModel pickUpModel=locations.get(position);

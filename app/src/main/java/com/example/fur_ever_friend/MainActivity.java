@@ -60,4 +60,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Intent i=new Intent(MainActivity.this,UploadImage.class);
         startActivity(i);
     }
+
+    public void moveToshow(View view) {
+        Intent i=new Intent(MainActivity.this,Show_Booking.class);
+        startActivity(i);
+    }
 }

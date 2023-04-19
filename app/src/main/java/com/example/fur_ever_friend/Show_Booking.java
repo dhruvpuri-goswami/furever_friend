@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,9 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WalkerAppoinment extends AppCompatActivity {
-
-    private static final String TAG = "WalkerAppoinment";
+public class Show_Booking extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DatabaseReference databaseReference;
     private List<AppoinmentModel> appoinmentModelList;
@@ -32,23 +29,21 @@ public class WalkerAppoinment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_walker_appoinment);
-
-        recyclerView = findViewById(R.id.appoinment_recyclerview);
+        setContentView(R.layout.activity_show_booking);
+        recyclerView = findViewById(R.id.booking_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         databaseReference = FirebaseDatabase.getInstance().getReference().child("booking");
         appoinmentModelList = new ArrayList<>();
         locations=new ArrayList<>();
         keys=new ArrayList<>();
-        appoinmentAdapter = new AppoinmentAdapter(appoinmentModelList,locations,keys,1);
+        appoinmentAdapter = new AppoinmentAdapter(appoinmentModelList,locations,keys,0);
         recyclerView.setAdapter(appoinmentAdapter);
 
         sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
         String mobile=sharedPreferences.getString("mobile","");
-        String role=sharedPreferences.getString("role","");
 
 
-        databaseReference.orderByChild("walkerId").equalTo(mobile).addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByChild("userId").equalTo(mobile).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 appoinmentModelList.clear();

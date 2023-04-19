@@ -146,11 +146,6 @@ public class Maps_Activity extends AppCompatActivity {
         mapView.onLowMemory();
     }
 
-//    @Override
-//    public void onMapReady(@NonNull GoogleMap googleMap) {
-//        gMap=googleMap;
-//
-//    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {

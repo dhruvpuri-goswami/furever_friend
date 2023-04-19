@@ -21,11 +21,17 @@
         android:theme="@style/Theme.Fur_ever_friend"
         tools:targetApi="33">
         <activity
+            android:name=".Show_Booking"
+            android:exported="false" />
+        <activity
+            android:name=".Tracker"
+            android:exported="false" />
+        <activity
             android:name=".TrackerActivity"
             android:exported="false" />
         <activity
             android:name=".WalkerProfile"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".WalkerAppoinment"
             android:exported="false" />
@@ -58,7 +64,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SendOTP"
             android:exported="false" />
@@ -83,9 +89,11 @@
         <activity
             android:name=".Register"
             android:exported="true"
-            android:parentActivityName=".LoginActivity"></activity>
-        <service android:name=".TrackerService"
-            android:enabled="true"/>
+            android:parentActivityName=".LoginActivity" />
+
+        <service
+            android:name=".TrackerService"
+            android:enabled="true" />
     </application>
 
 </manifest>
