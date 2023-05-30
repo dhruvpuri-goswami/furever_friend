@@ -20,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/dog_walker_profile_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -39,7 +38,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/name_of_dogWalker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30sp"
@@ -54,7 +52,6 @@
 
 
                 <TextView
-                    android:id="@+id/time_for_appoinment_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30sp"
@@ -71,7 +68,6 @@
     </androidx.cardview.widget.CardView>
 
     <EditText
-        android:id="@+id/description_getter"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:hint="Enter your description"
@@ -113,7 +109,6 @@
             >
 
             <RadioButton
-                android:id="@+id/male_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Male"
@@ -121,14 +116,12 @@
                 android:layout_gravity="start" />
 
             <RadioButton
-                android:id="@+id/female_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
                 android:layout_weight="1" />
 
             <RadioButton
-                android:id="@+id/others_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Others"

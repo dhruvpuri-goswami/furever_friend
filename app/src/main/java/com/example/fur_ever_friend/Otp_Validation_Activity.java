@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.auth.api.phone.SmsRetriever;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,11 +48,16 @@ public class Otp_Validation_Activity extends AppCompatActivity {
     String verficationId;
     private OTP_Receiver otp_receiver;
 
+    LottieAnimationView lottieAnimationView;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_validation);
         intent=getIntent();
+        lottieAnimationView = findViewById(R.id.loading);
         TextView mobileContainer=findViewById(R.id.phone_num_container);
         String number=intent.getStringExtra("number");
         verficationId=intent.getStringExtra("verificationId");
@@ -63,8 +70,16 @@ public class Otp_Validation_Activity extends AppCompatActivity {
         inputCode6=findViewById(R.id.otp_block6);
         btn_otp=findViewById(R.id.otp_submit);
 
-        ProgressBar progressBar=findViewById(R.id.otpProgress);
         setupOTP();
+
+        ImageView back = findViewById(R.id.backbtn);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
         btn_otp.setOnClickListener(new View.OnClickListener() {
@@ -78,14 +93,14 @@ public class Otp_Validation_Activity extends AppCompatActivity {
                 }
                 String code=inputCode1.getText().toString()+inputCode2.getText().toString()+inputCode3.getText().toString()+inputCode4.getText().toString()+inputCode5.getText().toString()+inputCode6.getText().toString();
                 if(verficationId!=null){
-                    progressBar.setVisibility(View.VISIBLE);
                     btn_otp.setVisibility(View.INVISIBLE);
+                    lottieAnimationView.setVisibility(View.VISIBLE);
                     PhoneAuthCredential phoneAuthCredential= PhoneAuthProvider.getCredential(verficationId,code);
                     FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            progressBar.setVisibility(View.GONE);
                             btn_otp.setVisibility(View.VISIBLE);
+                            lottieAnimationView.setVisibility(View.INVISIBLE);
                             if(task.isSuccessful()){
                                 String number=task.getResult().getUser().getPhoneNumber();
                                 String login=number.substring(3);

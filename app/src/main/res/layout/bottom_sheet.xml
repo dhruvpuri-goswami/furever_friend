@@ -2,7 +2,6 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <FrameLayout
@@ -65,7 +64,6 @@
                     android:layout_centerHorizontal="true"
                     android:text="10 am"/>
                 <TextView
-                    android:id="@+id/dog_walker_company"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BbfCare"
@@ -82,7 +80,6 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Amanda Foster,28"/>
             <TextView
-                android:id="@+id/dog_walker_star"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
@@ -102,14 +99,12 @@
                     android:src="@drawable/dog"
                     android:layout_gravity="center"/>
                 <TextView
-                    android:id="@+id/dog_walker_fee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_medium"
                     android:textSize="12sp"
                     android:text="$12.30"/>
                 <TextView
-                    android:id="@+id/dog_walker_comapny_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
@@ -117,7 +112,6 @@
 
                     android:text="BbfCare"/>
                 <TextView
-                    android:id="@+id/regular_walking"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_medium"

@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         if(!isFinishing())
             checkLocationPermission();
         password=findViewById(R.id.password);
@@ -128,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
     public void ShowHide(View view) {
         if(password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
             password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            showHide.setImageResource(R.drawable.lock_item);
+            showHide.setImageResource(R.drawable.lock_item_gray);
         }else{
             password.setTransformationMethod(PasswordTransformationMethod.getInstance());
             showHide.setImageResource(R.drawable.eye_for_toggle);
@@ -145,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, WalkerAppoinment.class);
                     startActivity(i);
                 } else {
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent i = new Intent(LoginActivity.this, HomeFragment.class);
                     startActivity(i);
                 }
             }

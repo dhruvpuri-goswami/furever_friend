@@ -4,7 +4,7 @@
     <corners
         android:radius="10dp"/>
     <solid
-        android:color="#315B77"
+        android:color="@color/app_pink_light"
         />
 
 </shape>

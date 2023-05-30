@@ -4,22 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_bg"
     tools:context=".Otp_Validation_Activity">
 
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.534" />
 
     <TextView
         android:id="@+id/sign_up_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Enter OTP"
-        android:textColor="@color/dark_theme"
+        android:textColor="@color/app_yellow"
         android:textSize="30dp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +39,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="60dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +52,7 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="+91 "
+            android:textColor="@color/white"
             android:textSize="19dp" />
 
     </LinearLayout>
@@ -48,7 +61,7 @@
         android:id="@+id/otp_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,12 +73,14 @@
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
             android:inputType="number"
             android:maxLength="1"
-            android:textColor="@android:color/black"
+            android:textColor="@color/app_bg"
+            android:textColorHint="@color/app_bg"
             android:textSize="28sp" />
 
         <EditText
@@ -73,13 +88,14 @@
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-
+            android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="@color/app_bg"
+            android:textColorHint="@color/app_bg"
             android:textSize="28sp" />
 
         <EditText
@@ -87,13 +103,14 @@
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-
+            android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="@color/app_bg"
+            android:textColorHint="@color/app_bg"
             android:textSize="28sp" />
 
         <EditText
@@ -101,13 +118,14 @@
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-
+            android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="@color/app_bg"
+            android:textColorHint="@color/app_bg"
             android:textSize="28sp" />
 
         <EditText
@@ -115,13 +133,14 @@
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-
+            android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="@color/app_bg"
+            android:textColorHint="@color/app_bg"
             android:textSize="28sp" />
 
         <EditText
@@ -129,57 +148,82 @@
             android:layout_width="45dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:background="@drawable/otp_bg"
             android:gravity="center|center_vertical"
             android:hint="0"
             android:inputType="number"
             android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:textColor="@color/app_bg"
+            android:textColorHint="@color/app_bg"
             android:textSize="28sp" />
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/btn_frame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/dogwalk"
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/otp_submit"
+        style="@android:style/Widget.Button"
+        android:layout_width="355dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center"
+        android:background="@drawable/yello_rounded"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Submit"
+        android:textColor="@color/app_bg"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otp_container" />
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="@dimen/_36sdp"
+        android:layout_height="@dimen/_36sdp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/otp_container"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.087"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/dogpaw" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/otp_submit"
-            style="@android:style/Widget.Button"
-            android:layout_width="376dp"
-            android:layout_height="49dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/button_gradient"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Submit"
-            android:textColor="@color/white" />
-
-        <ProgressBar
-            android:id="@+id/otpProgress"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:visibility="gone"/>
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/dogwalk"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="34dp"
-        android:src="@drawable/dog_walk"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_frame" />
+        android:layout_height="@dimen/_35sdp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otp_submit"
+        app:layout_constraintVertical_bias="0.017"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="end"
+            android:text="Didn't Recieve Yet ?"
+            android:textColor="@color/gray" />
+
+        <Button
+            android:id="@+id/register_btn"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/_4sdp"
+            android:text="Resend OTP"
+            android:textColor="@color/app_yellow" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -187,10 +231,25 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/otp_first_line"
+        android:textColor="@color/gray"
         android:textSize="19dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.385"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_textview" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imageView3"
+        android:layout_width="364dp"
+        android:layout_height="361dp"
+        android:paddingLeft="@dimen/_20sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_progress="1"
+        app:lottie_rawRes="@raw/otpverify" />
 </androidx.constraintlayout.widget.ConstraintLayout>
