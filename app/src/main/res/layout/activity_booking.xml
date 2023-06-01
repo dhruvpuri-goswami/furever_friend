@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookingActivity"
+    android:background="@color/app_bg"
     android:orientation="vertical">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:text="Booking Details"
+        android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30sp"
         android:textSize="30sp"
@@ -27,7 +29,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal"
         android:layout_gravity="center_vertical">
 
@@ -37,6 +38,8 @@
             android:fontFamily="@font/montserrat_bold"
             android:layout_gravity="center"
             android:textSize="16sp"
+
+            android:textColor="@color/app_yellow"
             android:text="Pick a Date for booking:" />
         <EditText
             android:id="@+id/edit_text_date"
@@ -44,6 +47,8 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="false"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/montserrat_bold"
             android:hint="Select Date"
             android:inputType="none" />
     </LinearLayout>
@@ -60,7 +65,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="horizontal"
             android:layout_gravity="center_vertical">
 
@@ -70,7 +74,8 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:layout_gravity="center"
                 android:textSize="16sp"
-                android:text="Pick a Time for booking:" />
+                android:text="Pick a Time for booking:"
+                android:textColor="@color/app_yellow"/>
             <EditText
                 android:id="@+id/edit_text_time"
                 android:layout_width="match_parent"
@@ -78,6 +83,8 @@
                 android:clickable="true"
                 android:focusable="false"
                 android:hint="Select Time"
+                android:textColorHint="@color/white"
+                android:fontFamily="@font/montserrat_bold"
                 android:inputType="none" />
         </LinearLayout>
 
@@ -97,12 +104,17 @@
             android:fontFamily="@font/montserrat_bold"
             android:layout_gravity="center"
             android:textSize="16sp"
+            android:layout_weight="0.1"
+            android:textColor="@color/app_yellow"
             android:text="Select Pickup Location:" />
         <Button
             android:id="@+id/select_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Open Maps"
+            android:background="@android:color/transparent"
+            android:layout_weight="1.6"
+            android:textColor="@color/white"
             android:fontFamily="@font/montserrat_bold"/>
         <TextView
             android:layout_width="wrap_content"
@@ -122,6 +134,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:text="Select Dog Walker"
+        android:textColor="@color/white"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30sp"
@@ -134,6 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+
         />
     </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView

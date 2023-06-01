@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (mobile_num.isEmpty() ||Password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Please Fill Blank Details", Toast.LENGTH_SHORT).show();
                 }else{
+
                     databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -147,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent i = new Intent(LoginActivity.this, WalkerAppoinment.class);
                     startActivity(i);
                 } else {
-                    Intent i = new Intent(LoginActivity.this, HomeFragment.class);
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);
                 }
             }

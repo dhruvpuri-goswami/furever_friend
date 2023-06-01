@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -25,9 +26,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navi);
+        bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        loadFragment(new Dash_BoardFragment());
+        loadFragment(new HomeFragment());
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.dashbord:
                 fragment = new Dash_BoardFragment();
                 break;
-            case R.id.users:
+            case R.id.home:
                 fragment = new HomeFragment();
                 break;
             case R.id.profile:

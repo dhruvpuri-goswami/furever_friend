@@ -22,12 +22,12 @@
         tools:targetApi="33" >
         <activity
             android:name=".splash_screen"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
             android:name=".Show_Booking"
@@ -52,6 +52,7 @@
         <activity
             android:name=".UploadImage"
             android:exported="true" />
+
         <activity
             android:name=".BookingActivity"
             android:exported="true" />
@@ -73,7 +74,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".SendOTP"
             android:exported="false" />

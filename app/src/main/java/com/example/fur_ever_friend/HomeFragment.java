@@ -18,6 +18,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.location.LocationKt;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.Display;
@@ -36,18 +38,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
 public class HomeFragment extends Fragment {
-
-
+    private RecentWalkersHomeAdapter recentWalkersHomeAdapter;
+    private RecyclerView recyclerView;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference myRef = database.getReference("booking");
     LocationManager locationManager;
     String provider;
     DatabaseReference databaseReference;
     SharedPreferences sharedPreferences;
     ImageView profileImage;
-    Button book;
+    Button book,see_all;
+
     private int radius=30;
 
     public HomeFragment() {
@@ -91,24 +98,42 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
-//        profileImage=view.findViewById(R.id.profile_icon);
-//        sharedPreferences = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
-//        String mobile = sharedPreferences.getString("mobile", "");
-//        databaseReference.child("dog_walkers").child(mobile).child("imageUrl").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-////                Log.d("data",snapshot.getValue().toString());
-////                Glide.with(HomeFragment.this)
-////                        .load(Objects.requireNonNull(snapshot.getValue()))
-////                        .transform(new RoundedCorners(radius))
-////                        .into(profileImage);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        see_all=view.findViewById(R.id.see_all);
+        recyclerView=view.findViewById(R.id.recent_walkers_home);
+
+        List<RecentWalkerModel> recentWalkerModels = new ArrayList<>();
+        recentWalkersHomeAdapter = new RecentWalkersHomeAdapter(recentWalkerModels);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(recentWalkersHomeAdapter);
+
+        see_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "See all clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                recentWalkerModels.clear();
+                for (DataSnapshot bookingSnapshot : snapshot.getChildren()) {
+                    DataSnapshot pickupLocationSnapshot = bookingSnapshot.child("Pickup Location");
+                    String date = pickupLocationSnapshot.child("date").getValue(String.class);
+                    String time = pickupLocationSnapshot.child("time").getValue(String.class);
+                    RecentWalkerModel recentWalkerModel = new RecentWalkerModel(date, time);
+                    System.out.println("date"+date);
+                    recentWalkerModels.add(recentWalkerModel);
+                }
+                recentWalkersHomeAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle database error
+            }
+        });
+
         return view;
     }
 

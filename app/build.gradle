@@ -63,4 +63,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
     def lottieVersion = "6.0.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
 }

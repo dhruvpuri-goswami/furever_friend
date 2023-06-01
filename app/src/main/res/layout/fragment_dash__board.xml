@@ -1,30 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Dash_BoardFragment">
+    tools:context=".Dash_BoardFragment"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
 
-
-
-    <FrameLayout
-        android:id="@+id/bottom_sheet_layout"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/app_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:background="@drawable/rounded_bottom_sheet">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:civ_border_width="2dp"
+                android:src="@drawable/logo"
+                app:civ_border_color="@color/app_yellow"
+                app:civ_circle_background_color="@color/app_yellow"
+                android:layout_gravity="center_vertical" />
+            <ImageView
+                android:id="@+id/camera_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/camera_icon"
+                android:layout_alignEnd="@id/user_img"
+                android:layout_alignBottom="@id/user_img"
+                android:background="@drawable/circle_background"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:baselineAlignedChildIndex="0"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Name of User"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        style="@style/TextView.Light"
+                        android:textStyle="bold"
+                        android:layout_weight="0.7"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/edit_icon"
+                        android:padding="5sp"
+                        android:layout_marginStart="29dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:baselineAlignedChildIndex="0">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Phone Number"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        style="@style/TextView.Light"
+                        android:textStyle="bold"
+                        android:layout_weight="0.7"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/edit_icon"
+                        android:padding="5sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/user_desc"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="Enter your description"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:gravity="top"
+        style="@style/EditText.Light"
+        android:layout_margin="8dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender:"
+            android:textColor="@color/app_yellow"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_gravity="center_vertical"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/gender_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_gravity="start" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_gravity="end" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="40dp"
+        >
 
         <ImageView
-            android:layout_width="70dp"
+            android:id="@+id/logout_image"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bottom_sheet_line"
-            android:layout_gravity="center_horizontal"
-            android:scaleType="centerCrop"/>
-    </FrameLayout>
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:src="@drawable/logout_logo"
+            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_yellow"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="8sp"
+            android:layout_toRightOf="@+id/logout_image"
+            android:background="@null"
+            android:backgroundTint="#00000000"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Logout"/>
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.Button"
+            android:textAlignment="textStart"
+            android:layout_alignParentEnd="true"
+            android:padding="5sp"
+            android:background="@drawable/update_profile_btn_drawable"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Update Profile"/>
+
+    </RelativeLayout>
+</LinearLayout>

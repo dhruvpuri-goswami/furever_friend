@@ -16,15 +16,15 @@
         android:gravity="start"
         app:layout_constraintEnd_toEndOf="parent"
 
-
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
         <ImageView
-            android:layout_width="@dimen/_38sdp"
-            android:layout_height="@dimen/_38sdp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_gravity="start"
             android:src="@drawable/logo_short" />
 
@@ -61,6 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="15sp"
         android:background="@color/app_bg"
+        app:cardCornerRadius="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_container" >
 
@@ -101,7 +102,7 @@
                 style="@android:style/Widget.Button"
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="15dp"
                 android:background="@color/app_yellow"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
@@ -118,7 +119,7 @@
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingLeft="5dp"
                     android:scaleX="1.0"
                     android:scaleY="1.0"
                     android:src="@drawable/dog_main"/>
@@ -133,6 +134,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="15sp"
         android:background="@color/nav_bar"
+        app:cardCornerRadius="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/book_cardview" >
 
@@ -148,6 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+
                 android:orientation="vertical"
                 android:padding="10dp">
 
@@ -176,7 +179,7 @@
                 android:orientation="vertical"
                 android:layout_gravity="start"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/_19sdp"
+                android:layout_marginBottom="19dp"
                 android:padding="5sp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -186,7 +189,7 @@
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/montserrat_medium"
-                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="7dp"
                     android:drawableLeft="@drawable/dog_walking_time"
@@ -199,10 +202,10 @@
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/montserrat_medium"
-                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawablePadding="5dp"
                     android:gravity="center"
                     android:padding="7dp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="10dp"
                     android:drawableLeft="@drawable/dog_walking_time"
                     android:background="@color/app_pink_light"
                     />
@@ -214,7 +217,7 @@
                     android:layout_gravity="end"
                     android:layout_marginLeft="7dp"
                     android:layout_marginRight="7dp"
-                    android:layout_marginBottom="@dimen/_19sdp"
+                    android:layout_marginBottom="19dp"
                     android:gravity="center_horizontal"
                     android:padding="5sp">
                     <TextView
@@ -225,7 +228,7 @@
                         android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/montserrat_medium"
-                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawablePadding="5dp"
                         android:gravity="center"
                         android:padding="7dp"
                         android:drawableLeft="@drawable/dog_walking_time"
@@ -238,10 +241,10 @@
                         android:textSize="12sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/montserrat_medium"
-                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawablePadding="5dp"
                         android:gravity="center"
                         android:padding="7dp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginTop="10dp"
 
                         android:drawableLeft="@drawable/dog_walking_time"
                         android:background="@color/app_red_light"
@@ -257,244 +260,41 @@
         android:id="@+id/recent_walker_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="15sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dog_health">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_marginStart="0dp"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_centerVertical="true"
             android:text="Recent walker"
-            android:textColor="@color/white"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="22sp" />
 
         <Button
+            android:id="@+id/see_all"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="See all >"
-            android:onClick="moveToshow"
-            android:textColor="@color/gray"
             android:layout_alignParentEnd="true"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:onClick="moveToshow"
+            android:text="See all >"
+            android:textColor="@color/gray" />
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recent_walkers_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recent_walker_container">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="15sp"
-            android:background="@color/app_bg"
-            >
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/app_bg"
-                android:layout_marginBottom="5sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/_8sdp"
-                    android:background="@color/app_bg">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/profile_round"
-                        android:scaleType="centerCrop"
-                        android:clipToOutline="true"
-                        android:outlineProvider="background"
-                        android:src="@drawable/person"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginLeft="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Salman Khan"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_vertical"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:textColor="@color/dull_white"
-                            android:text="06 Apr, 08:32 AM"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:gravity="bottom"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-               <RelativeLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   >
-
-                   <Button
-                       style="@android:style/Widget.Button"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_alignParentEnd="true"
-                       android:layout_marginRight="8dp"
-                       android:layout_marginBottom="8dp"
-                       android:layout_marginLeft="8dp"
-                       android:layout_marginTop="15dp"
-                       android:text="Book" />
-               </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/app_bg"
-                android:layout_marginBottom="5sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/_8sdp"
-                    android:background="@color/app_bg">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/profile_round"
-                        android:scaleType="centerCrop"
-                        android:clipToOutline="true"
-                        android:outlineProvider="background"
-                        android:src="@drawable/person"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginLeft="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Salman Khan"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_vertical"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:textColor="@color/dull_white"
-                            android:text="06 Apr, 08:32 AM"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:gravity="bottom"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    >
-
-                    <Button
-                        style="@android:style/Widget.Button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="15dp"
-                        android:text="Book" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/app_bg"
-                android:layout_marginBottom="5sp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/_8sdp"
-                    android:background="@color/app_bg">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/profile_round"
-                        android:scaleType="centerCrop"
-                        android:clipToOutline="true"
-                        android:outlineProvider="background"
-                        android:src="@drawable/person"/>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginLeft="10dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="Salman Khan"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center_vertical"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:textColor="@color/dull_white"
-                            android:text="06 Apr, 08:32 AM"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:gravity="bottom"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    >
-
-                    <Button
-                        style="@android:style/Widget.Button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="15dp"
-                        android:text="Book" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/recent_walker_container" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

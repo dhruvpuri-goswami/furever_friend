@@ -55,7 +55,7 @@ public class DogWalker {
 
     public String getStatus() {
         return status;
-    }
+    }   
 
     public void setStatus(String status) {
         status = status;
