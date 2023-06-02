@@ -12,4 +12,9 @@
     <!-- Strings used for fragments for navigation -->
 
     <string name="key">AIzaSyClLlLvZP4vQp2bo9Uih0-f_2LYeE2qhiQ</string>
+    <string name="title">Update</string>
+    <string name="supporting_text">Are you sure you want to update the data?</string>
+    <string name="cancel">Cancel</string>
+    <string name="decline">No</string>
+    <string name="accept"></string>
 </resources>

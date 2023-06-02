@@ -49,7 +49,7 @@
                 android:focusable="true" />
             </RelativeLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:orientation="vertical">
@@ -60,21 +60,23 @@
                     android:orientation="horizontal"
                     android:layout_gravity="center"
                     android:gravity="center_vertical"
-                    android:baselineAlignedChildIndex="0"
                     >
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/userName"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
+                        android:layout_height="match_parent"
+                        android:background="@null"
                         android:fontFamily="@font/montserrat_bold"
                         android:text="Name of User"
                         android:textAppearance="?android:textAppearanceMedium"
                         style="@style/TextView.Light"
+                        android:singleLine="true"
                         android:textStyle="bold"
-                        android:layout_weight="0.7"/>
+                        android:layout_weight="0.9"/>
 
                     <ImageView
+                        android:id="@+id/edit_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/edit_icon"
@@ -88,13 +90,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:baselineAlignedChildIndex="0">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/Phone_Number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:background="@null"
                         android:fontFamily="@font/montserrat_bold"
                         android:text="Phone Number"
                         android:textAppearance="?android:textAppearanceMedium"
@@ -102,11 +105,7 @@
                         android:textStyle="bold"
                         android:layout_weight="0.7"/>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/edit_icon"
-                        android:padding="5sp" />
+
 
                 </LinearLayout>
             </LinearLayout>

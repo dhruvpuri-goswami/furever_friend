@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Fur_ever_friend" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Fur_ever_friend" parent="Theme.AppCompat.Light.NoActionBar" >
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/app_bg</item>
         <item name="colorPrimaryDark">@color/app_bg</item>
@@ -13,5 +13,25 @@
     <style name="EditText.Dark" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
+    </style>
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="colorPrimary">@color/app_bg</item>
+        <item name="colorSecondary">@color/app_bg</item>
+        <item name="colorSurface">@color/app_bg</item>
+        <item name="colorOnSurface">@color/app_bg</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">1000dp</item>
+
+        <item name="titleTextColor">@color/app_yellow</item>
+        <item name="shapeAppearanceLargeComponent">@style/LargeComponentShapeAppearance</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
+    </style>
+    <style name="Widget.App.Button" parent="ShapeAppearanceOverlay.Material3.Button">
+        <item name="android:textColor">@color/app_pink</item>
+    </style>
+    <style name="LargeComponentShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
 </resources>

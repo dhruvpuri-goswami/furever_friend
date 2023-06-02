@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -148,6 +150,15 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).child("Pickup Location").child("Latitude").setValue(latLng.latitude);
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).child("Pickup Location").child("Longtitude").setValue(latLng.longitude);
                         Toast.makeText(BookingActivity.this, "Booking success", Toast.LENGTH_SHORT).show();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("walkerId", walkerId);
+                        bundle.putString("userId", getUserId());
+                        HomeFragment homeFragment=new HomeFragment();
+                        homeFragment.setArguments(bundle);
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container,homeFragment); // Replace "R.id.fragment_container" with the ID of your fragment container
+                        fragmentTransaction.commit();
                     }else{
                         Toast.makeText(BookingActivity.this, "Fill Empty Details", Toast.LENGTH_SHORT).show();
                     }

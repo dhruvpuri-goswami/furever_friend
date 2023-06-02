@@ -30,7 +30,8 @@ public class NewFragment extends Fragment {
     private RecyclerView recyclerView;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("booking");
-
+    private DatabaseReference myRefWalker = database.getReference("dog_walkers");
+    String name,imageUrl,date,time;
     public NewFragment() {
         // Required empty public constructor
     }
@@ -51,6 +52,7 @@ public class NewFragment extends Fragment {
         List<RecentWalkerModel> recentWalkerModels = new ArrayList<>();
         recent_walker_adapter = new Recent_Walker_Adapter(recentWalkerModels);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(recent_walker_adapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
@@ -59,13 +61,29 @@ public class NewFragment extends Fragment {
                 recentWalkerModels.clear();
                 for (DataSnapshot bookingSnapshot : snapshot.getChildren()) {
                     DataSnapshot pickupLocationSnapshot = bookingSnapshot.child("Pickup Location");
-                    String date = pickupLocationSnapshot.child("date").getValue(String.class);
-                    String time = pickupLocationSnapshot.child("time").getValue(String.class);
-                    RecentWalkerModel recentWalkerModel = new RecentWalkerModel(date, time);
-                    System.out.println("date"+date);
-                    recentWalkerModels.add(recentWalkerModel);
+                    date = bookingSnapshot.child("date").getValue(String.class);
+                    time = bookingSnapshot.child("time").getValue(String.class);
+
+                    String walkerId=bookingSnapshot.child("walkerId").getValue().toString();
+                    myRefWalker.child(walkerId).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            Log.d("image",snapshot.getValue(String.class));
+
+                            imageUrl=snapshot.child("imageUrl").getValue(String.class);
+                            name =snapshot.child("name").getValue(String.class);
+                            RecentWalkerModel recentWalkerModel=new RecentWalkerModel(date,time, imageUrl,name);
+
+                            recentWalkerModels.add(recentWalkerModel);
+                            recent_walker_adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                 }
-                recent_walker_adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -73,7 +91,6 @@ public class NewFragment extends Fragment {
                 // Handle database error
             }
         });
-
         return view;
     }
 }

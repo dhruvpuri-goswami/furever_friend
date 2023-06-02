@@ -330,7 +330,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/imageView3"
         android:layout_width="256dp"
-        android:layout_height="212dp"
+        android:layout_height="100dp"
         android:layout_marginTop="60dp"
         android:scaleX="1.5"
         android:scaleY="1.5"

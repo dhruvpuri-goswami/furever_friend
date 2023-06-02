@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="15sp"
     app:cardCornerRadius="8dp"
 
     android:clickable="true"
@@ -12,10 +12,7 @@
     android:background="@color/app_bg"
     >
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/app_bg">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +47,8 @@
                 <LinearLayout
                     android:layout_gravity="start"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    >
                     <TextView
                         android:id="@+id/recent_walker_date"
                         android:layout_width="wrap_content"
@@ -58,6 +56,7 @@
                         android:layout_marginTop="5dp"
                         android:textColor="@color/dull_white"
                         android:text="06 Apr"
+                        android:layout_margin="@dimen/_4sdp"
                         android:fontFamily="@font/montserrat_medium"
                         android:gravity="bottom"/>
                     <TextView
@@ -97,4 +96,3 @@
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-</androidx.cardview.widget.CardView>

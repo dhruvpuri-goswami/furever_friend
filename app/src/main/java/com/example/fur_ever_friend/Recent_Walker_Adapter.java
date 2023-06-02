@@ -1,21 +1,25 @@
 package com.example.fur_ever_friend;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.google.android.gms.maps.MapView;
 
 import java.util.List;
 
 public class Recent_Walker_Adapter extends RecyclerView.Adapter<Recent_Walker_Adapter.ViewHolder> {
     private List<RecentWalkerModel> recent_appointments;
-
+    private Context context;
     public Recent_Walker_Adapter(List<RecentWalkerModel> recent_appointments) {
         this.recent_appointments = recent_appointments;
     }
@@ -24,6 +28,8 @@ public class Recent_Walker_Adapter extends RecyclerView.Adapter<Recent_Walker_Ad
     @Override
     public Recent_Walker_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recent_walkers, parent, false);
+        context=parent.getContext();
+
         return new ViewHolder(view);
     }
 
@@ -33,6 +39,12 @@ public class Recent_Walker_Adapter extends RecyclerView.Adapter<Recent_Walker_Ad
 
         holder.dateForAppoinment.setText(recentWalkerModel.getDate());
         holder.timeForAppoinment.setText(recentWalkerModel.getTime());
+        holder.dog_walker_name.setText(recentWalkerModel.getName());
+        int radius=30;
+        Glide.with(context)
+                .load(recentWalkerModel.getImageUrl())
+                .transform(new RoundedCorners(radius))
+                .into(holder.walker_img);
     }
 
     @Override
@@ -41,12 +53,14 @@ public class Recent_Walker_Adapter extends RecyclerView.Adapter<Recent_Walker_Ad
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView dateForAppoinment, timeForAppoinment;
-
+        TextView dateForAppoinment, timeForAppoinment,dog_walker_name;
+        ImageView walker_img;
         public ViewHolder(View itemView) {
             super(itemView);
             dateForAppoinment = itemView.findViewById(R.id.dog_walker_date);
             timeForAppoinment = itemView.findViewById(R.id.dog_walker_time);
+            dog_walker_name=itemView.findViewById(R.id.dog_walker_name);
+            walker_img=itemView.findViewById(R.id.walkers_img);
         }
     }
 }

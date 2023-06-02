@@ -48,14 +48,16 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("booking");
+    private DatabaseReference myRefWalker = database.getReference("dog_walkers");
     LocationManager locationManager;
     String provider;
     DatabaseReference databaseReference;
     SharedPreferences sharedPreferences;
     ImageView profileImage;
-    Button book,see_all;
+    Button book, see_all;
+    String name,imageUrl,date,time;
 
-    private int radius=30;
+    private int radius = 30;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -65,7 +67,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         sharedPreferences = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
         String mobile = sharedPreferences.getString("mobile", "");
@@ -73,13 +75,6 @@ public class HomeFragment extends Fragment {
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             provider = locationManager.getBestProvider(new Criteria(), false);
             if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return;
             }
             Location location = locationManager.getLastKnownLocation(provider);
@@ -87,7 +82,7 @@ public class HomeFragment extends Fragment {
 
             databaseReference.child("location").child(mobile).setValue(location);
         }
-        book=getActivity().findViewById(R.id.book);
+        book = getActivity().findViewById(R.id.book);
 
 
     }
@@ -97,14 +92,22 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_home, container, false);
-        see_all=view.findViewById(R.id.see_all);
-        recyclerView=view.findViewById(R.id.recent_walkers_home);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        see_all = view.findViewById(R.id.see_all);
+        recyclerView = view.findViewById(R.id.recent_walkers_home);
 
         List<RecentWalkerModel> recentWalkerModels = new ArrayList<>();
         recentWalkersHomeAdapter = new RecentWalkersHomeAdapter(recentWalkerModels);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            String walkerId = args.getString("walkerId");
+            String userId = args.getString("userId");
+
+            // Use the data as needed
+        }
         recyclerView.setAdapter(recentWalkersHomeAdapter);
 
         see_all.setOnClickListener(new View.OnClickListener() {
@@ -119,13 +122,33 @@ public class HomeFragment extends Fragment {
                 recentWalkerModels.clear();
                 for (DataSnapshot bookingSnapshot : snapshot.getChildren()) {
                     DataSnapshot pickupLocationSnapshot = bookingSnapshot.child("Pickup Location");
-                    String date = pickupLocationSnapshot.child("date").getValue(String.class);
-                    String time = pickupLocationSnapshot.child("time").getValue(String.class);
-                    RecentWalkerModel recentWalkerModel = new RecentWalkerModel(date, time);
-                    System.out.println("date"+date);
-                    recentWalkerModels.add(recentWalkerModel);
+                     date = bookingSnapshot.child("date").getValue(String.class);
+                     time = bookingSnapshot.child("time").getValue(String.class);
+
+                    String walkerId=bookingSnapshot.child("walkerId").getValue().toString();
+                    myRefWalker.child(walkerId).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            Log.d("image",snapshot.getValue(String.class));
+
+                            imageUrl=snapshot.child("imageUrl").getValue(String.class);
+                            name =snapshot.child("name").getValue(String.class);
+                            RecentWalkerModel recentWalkerModel=new RecentWalkerModel(date,time, imageUrl,name);
+
+                            recentWalkerModels.add(recentWalkerModel);
+                            recentWalkersHomeAdapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+//                    String name=bookingSnapshot.child("name").getValue(String.class);
+
+
                 }
-                recentWalkersHomeAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -134,7 +157,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
         return view;
     }
-
 }
