@@ -34,6 +34,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.shadow.ShadowRenderer;
 import com.google.firebase.database.DataSnapshot;
@@ -41,12 +43,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class BookingActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
+
     static EditText editTextDate,editTextTime;
     RecyclerView recyclerView;
     static AppCompatButton booking_btn;
@@ -128,6 +134,19 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                     Toast.makeText(BookingActivity.this, "Please select Valid Time", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    FirebaseMessaging.getInstance().getToken()
+                            .addOnSuccessListener(new OnSuccessListener<String>() {
+                                @Override
+                                public void onSuccess(String token) {
+                                    Log.d(Utils.TAG,token);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(BookingActivity.this, "Failed to get token", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                     BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(BookingActivity.this);
                     View layout= LayoutInflater.from(BookingActivity.this).inflate(R.layout.bottom_sheet,null);
                     DogWalker selectedDogWalker=dogWalkerAdapter.getSelectedItem();
@@ -150,15 +169,7 @@ public class BookingActivity extends AppCompatActivity implements SearchView.OnQ
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).child("Pickup Location").child("Latitude").setValue(latLng.latitude);
                         databaseReference.child(editTextDate.getText().toString().replace("/","")+""+editTextTime.getText().toString().replace(":","")).child("Pickup Location").child("Longtitude").setValue(latLng.longitude);
                         Toast.makeText(BookingActivity.this, "Booking success", Toast.LENGTH_SHORT).show();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("walkerId", walkerId);
-                        bundle.putString("userId", getUserId());
-                        HomeFragment homeFragment=new HomeFragment();
-                        homeFragment.setArguments(bundle);
-                        FragmentManager fragmentManager = getSupportFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_container,homeFragment); // Replace "R.id.fragment_container" with the ID of your fragment container
-                        fragmentTransaction.commit();
+
                     }else{
                         Toast.makeText(BookingActivity.this, "Fill Empty Details", Toast.LENGTH_SHORT).show();
                     }
