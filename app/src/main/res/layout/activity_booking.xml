@@ -1,176 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookingActivity"
-    android:background="@color/app_bg"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Booking Details"
-        android:textColor="@color/white"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30sp"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    android:background="@color/app_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20sp"
-        >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_gravity="center"
-            android:textSize="16sp"
-
+            android:text="Book a Walker"
             android:textColor="@color/app_yellow"
-            android:text="Pick a Date for booking:" />
-        <EditText
-            android:id="@+id/edit_text_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="false"
-            android:textColorHint="@color/white"
-            android:fontFamily="@font/montserrat_bold"
-            android:hint="Select Date"
-            android:inputType="none" />
-    </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30sp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20sp"
-        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp">
+
+            <!-- Pick a Date -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/app_yellow"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:text="Pick a Date :" />
+
+                <EditText
+                    android:id="@+id/edit_text_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:hint="Select Date"
+                    android:inputType="none" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+            <!-- Pick a Time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:text="Pick a Time :"
+                    android:textColor="@color/app_yellow" />
+
+                <EditText
+                    android:id="@+id/edit_text_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:textSize="16sp"
+                    android:hint="Select Time"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:inputType="none" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical">
 
+            <!-- Select Pickup Location -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_medium"
                 android:layout_gravity="center"
                 android:textSize="16sp"
-                android:text="Pick a Time for booking:"
-                android:textColor="@color/app_yellow"/>
-            <EditText
-                android:id="@+id/edit_text_time"
-                android:layout_width="match_parent"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="0.1"
+                android:textColor="@color/app_yellow"
+                android:text="Select Pickup Location:" />
+
+            <Button
+                android:id="@+id/select_location"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="false"
-                android:hint="Select Time"
-                android:textColorHint="@color/white"
-                android:fontFamily="@font/montserrat_bold"
-                android:inputType="none" />
+                android:text="Open Maps"
+                android:background="@color/nav_bar"
+                android:layout_weight="1.6"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_medium" />
+
+            <TextView
+                android:id="@+id/location_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium"
+                android:visibility="gone"
+                android:text="Location is Selected" />
+
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/select_dog_walker_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Select Dog Walker"
+                android:textColor="@color/app_yellow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="30sp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view_dog_walker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_centerVertical="true" />
 
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical">
+        </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/walkers_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scrollbars="vertical"
+            android:scrollIndicators="top"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/book_now"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@android:style/Widget.Button"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@drawable/yello_rounded"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_gravity="center"
-            android:textSize="16sp"
-            android:layout_weight="0.1"
-            android:textColor="@color/app_yellow"
-            android:text="Select Pickup Location:" />
-        <Button
-            android:id="@+id/select_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Open Maps"
-            android:background="@android:color/transparent"
-            android:layout_weight="1.6"
-            android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_bold"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/location_select"
-            android:fontFamily="@font/montserrat_medium"
-            android:visibility="gone"
-            android:text="Location is Selected"/>
+            android:text="Book Now"
+            android:textColor="@color/app_bg" />
+
     </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-    <TextView
-        android:id="@+id/select_dog_walker_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Select Dog Walker"
-        android:textColor="@color/white"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30sp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view_dog_walker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-
-        />
-    </RelativeLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/walkers_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:scrollbars="vertical"
-        android:scrollIndicators="top"
-
-        />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/book_now"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@android:style/Widget.Button"
-
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_gradient"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Book Now"
-        android:textColor="@color/white"
-        />
-
-</LinearLayout>
+</ScrollView>

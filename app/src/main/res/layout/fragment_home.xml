@@ -7,7 +7,6 @@
     android:background="@color/app_bg"
     tools:context=".HomeFragment">
 
-
     <LinearLayout
         android:id="@+id/top_container"
         android:layout_width="match_parent"
@@ -15,51 +14,50 @@
         android:padding="15sp"
         android:gravity="start"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical">
         <ImageView
             android:layout_width="38dp"
             android:layout_height="38dp"
+            android:layout_marginEnd="@dimen/_200sdp"
             android:layout_gravity="start"
             android:src="@drawable/logo_short" />
 
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:background="@color/app_bg"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/notifications" />
 
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="end"
-            android:onClick="moveToProfile"
-            android:background="@drawable/profile_round"
-            android:scaleType="centerCrop"
-            android:clipToOutline="true"
-            android:outlineProvider="background"
-            android:src="@drawable/person" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@color/app_bg"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/notifications" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end"
+                android:onClick="moveToProfile"
+                android:background="@drawable/profile_round"
+                android:scaleType="centerCrop"
+                android:clipToOutline="true"
+                android:outlineProvider="background"
+                android:src="@drawable/person" />
         </LinearLayout>
     </LinearLayout>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/book_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="15sp"
+        android:layout_marginBottom="@dimen/_11sdp"
+        android:layout_marginLeft="@dimen/_11sdp"
+        android:layout_marginRight="@dimen/_11sdp"
         android:background="@color/app_bg"
         app:cardCornerRadius="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +130,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="15sp"
+        android:layout_marginBottom="@dimen/_11sdp"
+        android:layout_marginLeft="@dimen/_11sdp"
+        android:layout_marginRight="@dimen/_11sdp"
+        android:layout_marginTop="@dimen/_11sdp"
         android:background="@color/nav_bar"
         app:cardCornerRadius="@dimen/_10sdp"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,6 +160,7 @@
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:scaleX="1.5"
+                    android:layout_marginLeft="@dimen/_5sdp"
                     android:scaleY="1.5"
                     app:lottie_progress="1"
                     app:lottie_loop="true"
@@ -169,86 +171,70 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_weight="1"
                 android:paddingTop="20dp"
+                android:layout_marginRight="@dimen/_5sdp"
                 >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="start"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="19dp"
-                android:padding="5sp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1.5 Hour"
-                    android:textSize="12sp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:drawableLeft="@drawable/dog_walking_time"
-                    android:background="@color/app_green_light"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1.5 Hour"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:drawablePadding="5dp"
-                    android:gravity="center"
-                    android:padding="7dp"
-                    android:layout_marginTop="10dp"
-                    android:drawableLeft="@drawable/dog_walking_time"
-                    android:background="@color/app_pink_light"
-                    />
-            </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="end"
-                    android:layout_marginLeft="7dp"
-                    android:layout_marginRight="7dp"
-                    android:layout_marginBottom="19dp"
+                    android:layout_gravity="start"
                     android:gravity="center_horizontal"
+                    android:orientation="horizontal"
                     android:padding="5sp">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.5 Hour"
-                        android:textSize="12sp"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:padding="7dp"
-                        android:drawableLeft="@drawable/dog_walking_time"
-                        android:background="@color/app_blue_light"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1.5 Hour"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:drawablePadding="5dp"
-                        android:gravity="center"
-                        android:padding="7dp"
-                        android:layout_marginTop="10dp"
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="0dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Dog Progress"
+                        android:textAlignment="center"
+                        android:textColor="@color/app_red_light"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="@dimen/_11sdp"
+                        android:background="@color/app_green_light"
                         android:drawableLeft="@drawable/dog_walking_time"
-                        android:background="@color/app_red_light"
-                        />
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="1.5 K.M"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:background="@color/app_blue_light"
+                        android:drawableLeft="@drawable/dog_walking_time"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="2 Hour"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -260,7 +246,7 @@
         android:id="@+id/recent_walker_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15sp"
+        android:layout_margin="@dimen/_11sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dog_health">
 
@@ -285,6 +271,7 @@
             android:background="@android:color/transparent"
             android:onClick="moveToshow"
             android:text="See all >"
+            android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/gray" />
     </RelativeLayout>
 

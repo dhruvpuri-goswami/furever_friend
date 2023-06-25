@@ -16,22 +16,22 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_15sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_menu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:itemIconSize="@dimen/_26sdp"
-        app:itemHorizontalPadding="@dimen/_16sdp"
-        android:paddingTop="@dimen/_7sdp"
-        app:itemIconTint="@color/app_yellow"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/button_gradient"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:padding="@dimen/_5sdp"
+        app:itemIconSize="@dimen/_20sdp"
+        app:itemIconTint="@color/app_yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

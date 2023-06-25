@@ -39,6 +39,8 @@ public class Register extends AppCompatActivity {
          sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
          editor=sharedPreferences.edit();
          Button registerBtn=findViewById(R.id.continue_btn);
+        Toast.makeText(getApplicationContext(), "Please scroll down to view the full screen", Toast.LENGTH_SHORT).show();
+
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

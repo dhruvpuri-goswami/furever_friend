@@ -40,12 +40,20 @@ public class Recent_Walker_Adapter extends RecyclerView.Adapter<Recent_Walker_Ad
         holder.dateForAppoinment.setText(recentWalkerModel.getDate());
         holder.timeForAppoinment.setText(recentWalkerModel.getTime());
         holder.dog_walker_name.setText(recentWalkerModel.getName());
-        int radius=30;
-        Glide.with(context)
-                .load(recentWalkerModel.getImageUrl())
-                .transform(new RoundedCorners(radius))
-                .into(holder.walker_img);
+        int radius = 30;
+
+        if (recentWalkerModel.getImageUrl() != null) {
+            Glide.with(context)
+                    .load(recentWalkerModel.getImageUrl())
+                    .transform(new RoundedCorners(radius))
+                    .into(holder.walker_img);
+        } else {
+            // Handle the case where the image URL is null
+            // For example, you can set a placeholder image or hide the ImageView
+            holder.walker_img.setImageResource(R.drawable.person);
+        }
     }
+
 
     @Override
     public int getItemCount() {

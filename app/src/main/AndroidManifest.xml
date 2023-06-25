@@ -56,9 +56,6 @@
             android:name=".BookingActivity"
             android:exported="true" />
         <activity
-            android:name=".Dog_Breed_Activity"
-            android:exported="false" />
-        <activity
             android:name=".Maps_Activity"
             android:exported="false" />
 
