@@ -194,7 +194,7 @@
                         android:fontFamily="@font/montserrat_bold"
                         android:text="Dog Progress"
                         android:textAlignment="center"
-                        android:textColor="@color/app_red_light"
+                        android:textColor="@color/white"
                         android:textSize="22sp" />
 
                 </LinearLayout>
@@ -211,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="@dimen/_11sdp"
-                        android:background="@color/app_green_light"
+                        android:background="@color/app_pink_light"
                         android:drawableLeft="@drawable/dog_walking_time"
                         android:drawablePadding="5dp"
                         android:fontFamily="@font/montserrat_medium"
